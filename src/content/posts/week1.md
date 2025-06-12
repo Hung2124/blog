@@ -52,7 +52,7 @@ Effectively finding and understanding research is a cornerstone of AI.
 
 <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px);">
 <p style="margin: 0; color: white; font-size: 16px; opacity: 0.95;">
-<strong>🎯 Dr's Approach:</strong> Strategic 4-stage method for efficient paper analysis
+<strong>🎓 Dr's Approach:</strong> Strategic 4-stage method for efficient paper analysis
 </p>
 </div>
 
