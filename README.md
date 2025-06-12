@@ -1,81 +1,92 @@
 # 🚀 AI Blog Pro - Powered by Fuwari
 
-> Modern, fast, và beautiful AI blog template built với Astro framework. Perfect cho AI enthusiasts, researchers, và professionals muốn share knowledge về Machine Learning, Deep Learning, và Data Science.
+> Modern, fast, and beautiful AI blog template built with the Astro framework. Perfect for AI enthusiasts, researchers, and professionals wanting to share knowledge about Machine Learning, Deep Learning, and Data Science.
 
 ![AI Blog Pro](https://img.shields.io/badge/AI%20Blog%20Pro-Live-brightgreen) ![Astro](https://img.shields.io/badge/Astro-5.8.1-orange) ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Styled-cyan)
 
 ## ✨ Features
 
 ### 🎨 **Modern Design**
-- **Clean, minimalist aesthetic** inspired by Japanese design principles
-- **Dark/Light mode** với automatic system preference detection
-- **Responsive design** perfect on all devices
-- **Smooth animations** và micro-interactions
-- **Professional typography** optimized for reading
+
+* **Clean, minimalist aesthetic** inspired by Japanese design principles
+* **Dark/Light mode** with automatic system preference detection
+* **Responsive design** perfect on all devices
+* **Smooth animations** and micro-interactions
+* **Professional typography** optimized for reading
 
 ### 📝 **Content-First**
-- **Markdown/MDX support** với syntax highlighting
-- **Math formulas** với KaTeX integration
-- **Code blocks** với multiple language support
-- **Image optimization** và lazy loading
-- **Tags và categories** cho content organization
+
+* **Markdown/MDX support** with syntax highlighting
+* **Math formulas** with KaTeX integration
+* **Code blocks** with support for multiple languages
+* **Image optimization** and lazy loading
+* **Tags and categories** for content organization
 
 ### 🚀 **Performance**
-- **99+ Lighthouse scores** across all metrics
-- **Static site generation** với Astro
-- **Minimal JavaScript** bundle
-- **CDN-ready** với optimized assets
-- **Fast loading** và excellent SEO
+
+* **99+ Lighthouse scores** across all metrics
+* **Static site generation** with Astro
+* **Minimal JavaScript** bundle
+* **CDN-ready** with optimized assets
+* **Fast loading** and excellent SEO
 
 ### 🔧 **Developer Experience**
-- **TypeScript** throughout
-- **Modern tooling** với Vite và ESBuild
-- **Hot reload** development server
-- **ESLint và Prettier** configured
-- **Git hooks** for code quality
+
+* **TypeScript** throughout
+* **Modern tooling** with Vite and ESBuild
+* **Hot reload** development server
+* **ESLint and Prettier** configured
+* **Git hooks** for code quality
 
 ### 📱 **Features for AI Blog**
-- **Code syntax highlighting** cho Python, R, SQL, etc.
-- **Mathematical notation** với KaTeX
-- **Jupyter notebook** style code blocks
-- **Research paper** citation support
-- **AI/ML taxonomy** tags và categories
+
+* **Code syntax highlighting** for Python, R, SQL, etc.
+* **Mathematical notation** with KaTeX
+* **Jupyter notebook** style code blocks
+* **Research paper** citation support
+* **AI/ML taxonomy** tags and categories
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Astro](https://astro.build) - Modern static site generator
-- **Styling**: [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS
-- **Icons**: [Lucide Icons](https://lucide.dev) - Beautiful, consistent icons
-- **Fonts**: [Inter](https://rsms.me/inter/) - Optimized for screens
-- **Math**: [KaTeX](https://katex.org) - Fast math typesetting
-- **Search**: [Pagefind](https://pagefind.app) - Static search
+* **Framework**: [Astro](https://astro.build) - Modern static site generator
+* **Styling**: [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS
+* **Icons**: [Lucide Icons](https://lucide.dev) - Beautiful, consistent icons
+* **Fonts**: [Inter](https://rsms.me/inter/) - Optimized for screens
+* **Math**: [KaTeX](https://katex.org) - Fast math typesetting
+* **Search**: [Pagefind](https://pagefind.app) - Static search
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Node.js** >= 20.0.0
-- **pnpm** >= 9.0.0 (recommended)
+
+* **Node.js** >= 20.0.0
+* **pnpm** >= 9.0.0 (recommended)
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <your-repo-url> ai-blog-pro
    cd ai-blog-pro
    ```
 
 2. **Install dependencies**
+
    ```bash
    pnpm install
    ```
 
 3. **Start development server**
+
    ```bash
    pnpm dev
    ```
-   Visit `http://localhost:4321` để see your blog!
+
+   Visit `http://localhost:4321` to see your blog!
 
 4. **Build for production**
+
    ```bash
    pnpm build
    ```
@@ -157,98 +168,104 @@ export const navBarConfig: NavBarConfig = {
 
 ### 🚀 Writing New Blog Posts (GitHub Actions Auto-Deploy)
 
-Sau khi setup GitHub Actions, việc viết blog trở nên **cực kỳ đơn giản**:
+After setting up GitHub Actions, writing new blog posts becomes **extremely simple**:
 
-#### **Bước 1: Tạo bài viết mới**
-Tạo file `.md` trong thư mục `src/content/posts/`:
+#### **Step 1: Create a new post**
+
+Create a `.md` file in the `src/content/posts/` directory:
 
 ```bash
-# Tạo file bài viết mới
-touch src/content/posts/ten-bai-viet-moi.md
+# Create a new post file
+touch src/content/posts/your-new-post.md
 ```
 
-#### **Bước 2: Viết nội dung**
-```yaml
+#### **Step 2: Write content**
+
+````yaml
 ---
-title: "Tiêu đề bài viết của bạn"
-published: 2025-06-09
-description: "Mô tả ngắn gọn về bài viết cho SEO"
-image: "path/to/image.jpg"          # Optional: ảnh đại diện
-tags: ["AI", "Machine Learning"]    # Tags cho bài viết
-category: "Tutorial"                # Category
-draft: false                        # false = publish, true = draft
+title: "Your Post Title"
+published: 2025-06-09              # Publish date
+description: "Short description of the post for SEO"
+image: "assets/images/image.jpg"   # Optional thumbnail
+tags: ["AI", "Machine Learning"]   # 3-5 relevant tags
+category: "Tutorial"               # Main category
+draft: false                       # true to hide
 ---
 
-# Nội dung bài viết
+# Your Post Content
 
-Viết nội dung bằng **Markdown** ở đây...
+Write your content in **Markdown** here...
 
 ## Code Examples
 
 ```python
-# Python code với syntax highlighting
+# Python code examples
 import numpy as np
 print("Hello AI World!")
-```
+````
 
 ## Math Formulas
 
-Inline math: $E = mc^2$
+Inline math: \$E = mc^2\$
 
 Display math:
-$$\sum_{i=1}^n x_i = x_1 + x_2 + ... + x_n$$
-```
+$\sum_{i=1}^n x_i = x_1 + x_2 + \dots + x_n$
 
-#### **Bước 3: Deploy tự động**
+````
+
+#### **Step 3: Automatic deployment**
 ```bash
-# Chỉ cần 3 lệnh này!
+# Just these three commands!
 git add .
-git commit -m "Add new post: Tên bài viết"
+git commit -m "Add new post: Your Post Title"
 git push
-```
+````
 
-#### **✨ Thế là xong!**
-- ⚡ **GitHub Actions** tự động detect push
-- 🔄 **Tự động build** Astro project với bài viết mới  
-- 🚀 **Tự động deploy** lên website
-- ⏱️ **2-3 phút** sau bài viết xuất hiện trên blog!
+#### **✨ And that's it!**
 
-### 🎯 Không cần làm gì thêm!
+* ⚡ **GitHub Actions** automatically detects your push
+* 🔄 Automatically builds the Astro project with the new post
+* 🚀 Automatically deploys to your website
+* ⏱️ Your post appears on the blog after 2–3 minutes!
 
-- ❌ **Không cần** `pnpm build`
-- ❌ **Không cần** deploy manual
-- ❌ **Không cần** chạy server
-- ✅ **Chỉ cần** git push và chờ!
+### 🎯 No additional steps needed!
+
+* ❌ **No need** to run `pnpm build`
+* ❌ **No manual deployment needed**
+* ❌ **No server to run**
+* ✅ **Just** git push and wait!
 
 ### 📋 Content Guidelines
 
 **Frontmatter Template:**
+
 ```yaml
 ---
-title: "Tiêu đề SEO-friendly"
-published: 2025-06-09              # Ngày publish
-description: "Mô tả 150-160 ký tự cho SEO"
+title: "SEO-friendly title"
+published: 2025-06-09              # Publish date
+description: "150-160 character description for SEO"
 image: "assets/images/post1.jpg"   # Optional thumbnail
-tags: ["AI", "Python", "Tutorial"] # 3-5 tags relevant
+tags: ["AI", "Python", "Tutorial"] # 3-5 relevant tags
 category: "Tutorial"               # Main category
-draft: false                       # true để hidden
+draft: false                       # true to hide
 ---
 ```
 
 **Content Support:**
-- ✅ **Markdown syntax** đầy đủ
-- ✅ **Code blocks** với 50+ languages
-- ✅ **Math formulas** với KaTeX (`$...$` và `$$...$$`)
-- ✅ **Images** với auto-optimization
-- ✅ **Tables, lists, quotes**
-- ✅ **Custom callouts** (`> [!NOTE]`, `> [!WARNING]`)
+
+* ✅ **Full Markdown syntax**
+* ✅ **Code blocks** with 50+ languages
+* ✅ **Math formulas** with KaTeX (`$...$` and `$$...$$`)
+* ✅ **Images** with auto-optimization
+* ✅ **Tables, lists, quotes**
+* ✅ **Custom callouts** (`> [!NOTE]`, `> [!WARNING]`, `> [!TIP]`)
 
 ### 🎨 Advanced Features
 
-**Code Examples với syntax highlighting:**
+**Code Examples with syntax highlighting:**
 
 ```python
-# Python với AI/ML libraries
+# Python with AI/ML libraries
 import tensorflow as tf
 import numpy as np
 
@@ -259,38 +276,40 @@ model = tf.keras.Sequential([
 ```
 
 ```javascript
-// JavaScript/TypeScript
+// JavaScript/TypeScript example
 const predict = async (model, data) => {
     const prediction = await model.predict(data);
     return prediction.dataSync();
 };
 ```
 
-**Math Formulas với KaTeX:**
+**Math Formulas with KaTeX:**
 
 ```markdown
 Inline: Neural network output $y = \sigma(Wx + b)$
 
 Display block:
-$$\text{Loss} = -\frac{1}{N}\sum_{i=1}^N \sum_{c=1}^C y_{i,c} \log(\hat{y}_{i,c})$$
+$$
+\text{Loss} = -\frac{1}{N}\sum_{i=1}^N \sum_{c=1}^C y_{i,c} \log(\hat{y}_{i,c})
+$$
 ```
 
 **Callouts/Admonitions:**
 
 ```markdown
 > [!NOTE]
-> Ghi chú quan trọng cho readers
+> Important note for readers
 
 > [!WARNING]
-> Cảnh báo về potential issues
+> Warning about potential issues
 
 > [!TIP]
-> Tips và tricks hữu ích
+> Useful tips and tricks
 ```
 
 ## 🎯 GitHub Actions Workflow
 
-### 📁 Cấu trúc Auto-Deploy
+### 📁 Auto-Deploy Workflow Structure
 
 ```yaml
 # .github/workflows/static.yml
@@ -315,30 +334,30 @@ jobs:
 ### 🔄 Deploy Process
 
 1. **Push code** → **GitHub detects changes**
-2. **Actions trigger** → **Install dependencies** 
+2. **Actions trigger** → **Install dependencies**
 3. **Build Astro** → **Generate static site**
 4. **Deploy Pages** → **Website live!**
 
 ### ⚡ Workflow Features
 
-- ✅ **Auto-trigger** on push to main branch
-- ✅ **pnpm support** với correct version detection
-- ✅ **Error handling** và retry logic
-- ✅ **Build caching** for faster deploys
-- ✅ **Multi-environment** support (staging/production)
+* ✅ **Auto-trigger** on push to the main branch
+* ✅ **pnpm support** with correct version detection
+* ✅ **Error handling** and retry logic
+* ✅ **Build caching** for faster deploys
 
 ### 📊 Monitoring Deploys
 
-**Theo dõi deployment:**
-1. Vào **GitHub repository** → **Actions tab**
-2. Xem **"Deploy static content to Pages"** workflow
+**Monitoring deployments:**
+
+1. Go to the **GitHub repository** → **Actions** tab
+2. View the **"Deploy static content to Pages"** workflow
 3. **Monitor progress**: Install → Build → Deploy
-4. **Check logs** nếu có errors
-5. **Website live** sau 2-3 phút thành công
+4. **Check logs** if there are errors
+5. **Website live** after 2–3 minutes when successful
 
 ### Code Examples
 
-Python code với syntax highlighting:
+Python code with syntax highlighting:
 
 ```python
 import numpy as np
@@ -362,18 +381,19 @@ print(f"Intercept: {model.intercept_[0]:.2f}")
 
 ### Math Formulas
 
-Inline math: The loss function is $L = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y_i})^2$
+Inline math: The loss function is \$L = \frac{1}{n}\sum\_{i=1}^n (y\_i - \hat{y\_i})^2\$
 
 Block math:
+
 $$
 \nabla_\theta J(\theta) = \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)}
 $$
 
 ## 🎨 Customization
 
-### Colors và Theming
+### Colors and Theming
 
-The blog supports custom color themes. Modify `src/config.ts`:
+Modify `src/config.ts`:
 
 ```typescript
 themeColor: {
@@ -415,6 +435,7 @@ const { language, code } = Astro.props;
 Multiple deployment options available:
 
 ### Vercel (Recommended)
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -424,43 +445,47 @@ vercel --prod
 ```
 
 ### Netlify
+
 ```bash
-# Build và deploy
+# Build and deploy
 pnpm build
 # Drag ./dist folder to netlify.app
 ```
 
 ### GitHub Pages
-Add GitHub Actions workflow (see `DEPLOYMENT_GUIDE.md` for details)
+
+Add a GitHub Actions workflow (see `DEPLOYMENT_GUIDE.md` for details)
 
 ## 🔧 Development
 
 ### Available Commands
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm preview` - Preview production build
-- `pnpm new-post "title"` - Create new blog post
-- `pnpm lint` - Run ESLint
-- `pnpm format` - Format code với Prettier
+* `pnpm dev` - Start development server
+* `pnpm build` - Build for production
+* `pnpm preview` - Preview production build
+* `pnpm new-post "title"` - Create new blog post
+* `pnpm lint` - Run ESLint
+* `pnpm format` - Format code with Prettier
 
 ### Code Quality
 
 The project includes:
-- **ESLint** for code linting
-- **Prettier** for code formatting
-- **TypeScript** for type safety
-- **Husky** for Git hooks
-- **lint-staged** for pre-commit checks
+
+* **ESLint** for code linting
+* **Prettier** for code formatting
+* **TypeScript** for type safety
+* **Husky** for Git hooks
+* **lint-staged** for pre-commit checks
 
 ## 📊 Analytics & SEO
 
 ### Built-in SEO Features
-- **Meta tags** optimization
-- **Open Graph** tags for social sharing
-- **Structured data** (JSON-LD)
-- **Sitemap** generation
-- **Robots.txt** configuration
+
+* **Meta tags** optimization
+* **Open Graph** tags for social sharing
+* **Structured data** (JSON-LD)
+* **Sitemap** generation
+* **Robots.txt** configuration
 
 ### Analytics Integration
 
@@ -482,17 +507,18 @@ Add Google Analytics to `src/layouts/BaseLayout.astro`:
 We welcome contributions! Please:
 
 1. **Fork the repository**
-2. **Create feature branch**: `git checkout -b feature/amazing-feature`
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
 3. **Commit changes**: `git commit -m 'Add amazing feature'`
 4. **Push to branch**: `git push origin feature/amazing-feature`
-5. **Open Pull Request**
+5. **Open a Pull Request**
 
 ### Development Guidelines
-- Follow existing code style
-- Add TypeScript types
-- Write meaningful commit messages
-- Test your changes thoroughly
-- Update documentation if needed
+
+* Follow existing code style
+* Add TypeScript types
+* Write meaningful commit messages
+* Test your changes thoroughly
+* Update documentation if needed
 
 ## 📝 License
 
@@ -500,18 +526,18 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙏 Acknowledgments
 
-- **[Fuwari](https://github.com/saicaca/fuwari)** - Original template
-- **[Astro](https://astro.build)** - Amazing framework
-- **[Tailwind CSS](https://tailwindcss.com)** - Styling system
-- **[Inter Font](https://rsms.me/inter/)** - Typography
-- **AI Community** - Inspiration và feedback
+* **[Fuwari](https://github.com/saicaca/fuwari)** - Original template
+* **[Astro](https://astro.build)** - Amazing framework
+* **[Tailwind CSS](https://tailwindcss.com)** - Styling system
+* **[Inter Font](https://rsms.me/inter/)** - Typography
+* **AI Community** - Inspiration and feedback
 
 ## 📞 Support
 
-- **Documentation**: Check `DEPLOYMENT_GUIDE.md` for detailed setup
-- **Issues**: [GitHub Issues](../../issues) for bug reports
-- **Discussions**: [GitHub Discussions](../../discussions) for questions
-- **Email**: thank0617@gmai.com
+* **Documentation**: Check `DEPLOYMENT_GUIDE.md` for detailed setup
+* **Issues**: [GitHub Issues](../../issues) for bug reports
+* **Discussions**: [GitHub Discussions](../../discussions) for questions
+* **Email**: [thank0617@gmai.com](mailto:thank0617@gmai.com)
 
 ---
 
@@ -520,11 +546,11 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 Using AI Blog Pro? We'd love to feature your blog! Submit a PR adding your site to this section.
 
 ### Live Examples
-- **AI Blog Pro Demo**: [[demo-link]](https://hung2124.github.io/blog/) - Example implementation
-- **Your Blog Here**: Submit your blog URL!
+
+* **AI Blog Pro Demo**: [\[demo-link\]](https://hung2124.github.io/blog/) - Example implementation
+* **Your Blog Here**: Submit your blog URL!
 
 ---
 
 **⭐ Star this repository if you find it helpful! It helps others discover the project.**
-
-**🚀 Happy blogging! Share your AI knowledge với the world!**
+**🚀 Happy blogging! Share your AI knowledge with the world!**
