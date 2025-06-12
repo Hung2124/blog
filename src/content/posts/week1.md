@@ -30,26 +30,344 @@ Effectively finding and understanding research is a cornerstone of AI.
 
 #### How to Read Papers (The 3-Pass Approach):
 
-**🔍 First Pass (Skim - 5-10 mins):**
-- Read the Title, Abstract, and Introduction
-- Look at the section headings and the Conclusion
-- Glance at the figures and tables to get a high-level understanding
-- **Goal:** To understand the paper's core idea and decide if it's relevant to you
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; margin: 30px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
 
-**📖 Second Pass (Read with Greater Detail - ~1 hour):**
-- Read the paper from start to finish, but ignore the fine details of proofs or complex formulas
-- Take notes on key points and definitions
-- Pay close attention to the figures, diagrams, and results tables
-- **Goal:** To grasp the paper's content and methodology
+<h4 style="text-align: center; color: white; margin-bottom: 35px; font-size: 24px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">📖 Academic Paper Reading Strategy</h4>
 
-**🧠 Third Pass (In-depth Analysis):**
-- Critically analyze the paper, questioning assumptions and methodologies
-- Try to re-create a small part of the work or think about how you would extend it
-- **Goal:** To fully understand the paper in detail, including its strengths and weaknesses
+<div id="paper-reading-strategy" style="background: rgba(255,255,255,0.95); border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin-bottom: 30px;"></div>
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/blog/images/three-pass-reading-flowchart.png" alt="Three Pass Reading Method Flowchart" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 25px;">
+
+<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px);">
+<h5 style="color: white; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
+  <span style="color: #ff6b6b; font-size: 20px;">📋</span> Pass 1: Quick Scan (5-10 mins)
+</h5>
+<p style="color: white; margin: 0; opacity: 0.9; font-size: 15px; line-height: 1.5;">
+Abstract → Introduction → Conclusion → Figures<br/>
+<strong>Goal:</strong> Decide if paper is worth reading
+</p>
 </div>
+
+<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px);">
+<h5 style="color: white; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
+  <span style="color: #4ecdc4; font-size: 20px;">🔍</span> Pass 2: Detailed Read (30-60 mins)
+</h5>
+<p style="color: white; margin: 0; opacity: 0.9; font-size: 15px; line-height: 1.5;">
+Full paper except complex proofs<br/>
+<strong>Goal:</strong> Understand methodology and results
+</p>
+</div>
+
+<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px);">
+<h5 style="color: white; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
+  <span style="color: #95e1d3; font-size: 20px;">🧠</span> Pass 3: Critical Analysis (1-3 hours)
+</h5>
+<p style="color: white; margin: 0; opacity: 0.9; font-size: 15px; line-height: 1.5;">
+Deep dive, question assumptions<br/>
+<strong>Goal:</strong> Master the technique completely
+</p>
+</div>
+
+</div>
+
+<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px);">
+<p style="margin: 0; color: white; font-size: 16px; opacity: 0.95;">
+<strong>💡 Pro Tip:</strong> Each section serves a specific purpose - follow the reading flow for maximum efficiency
+</p>
+</div>
+
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+(function() {
+  // Paper sections data with descriptions
+  const paperSections = [
+    {
+      id: "abstract",
+      title: "Abstract",
+      description: "Why this paper matters – read this first to decide if you should invest your time in the rest of the paper.",
+      priority: "HIGH",
+      color: "#e74c3c",
+      x: 400, y: 50,
+      passes: [1, 2, 3]
+    },
+    {
+      id: "introduction", 
+      title: "Introduction",
+      description: "Get a high-level overview of the problem and the authors' approach; this orients you before diving into details.",
+      priority: "HIGH",
+      color: "#f39c12",
+      x: 200, y: 150,
+      passes: [1, 2, 3]
+    },
+    {
+      id: "related-work",
+      title: "Related Work", 
+      description: "See what other researchers have done in this area and how this paper distinguishes itself.",
+      priority: "MEDIUM",
+      color: "#f1c40f",
+      x: 600, y: 150,
+      passes: [2, 3]
+    },
+    {
+      id: "approach",
+      title: "Approach",
+      description: "Study the meat of the paper – the detailed description of the algorithm or method. This is where the novel contributions live.",
+      priority: "CRITICAL",
+      color: "#27ae60",
+      x: 400, y: 250,
+      passes: [2, 3]
+    },
+    {
+      id: "experiments",
+      title: "Experiments", 
+      description: "Examine the training setup, evaluation metrics, visualizations, and comparisons with prior work to judge the method's effectiveness.",
+      priority: "HIGH",
+      color: "#3498db",
+      x: 200, y: 350,
+      passes: [1, 2, 3]
+    },
+    {
+      id: "conclusion",
+      title: "Conclusion",
+      description: "Note the key takeaways and suggested directions for future research.",
+      priority: "HIGH", 
+      color: "#9b59b6",
+      x: 600, y: 350,
+      passes: [1, 2, 3]
+    },
+    {
+      id: "references",
+      title: "References",
+      description: "Use this list to trace back important prior work and follow up on ideas you want to explore further.",
+      priority: "LOW",
+      color: "#95a5a6",
+      x: 400, y: 450,
+      passes: [2, 3]
+    }
+  ];
+
+  // Reading flow connections
+  const connections = [
+    { from: "abstract", to: "introduction" },
+    { from: "introduction", to: "related-work" },
+    { from: "introduction", to: "approach" },
+    { from: "related-work", to: "approach" },
+    { from: "approach", to: "experiments" },
+    { from: "approach", to: "conclusion" },
+    { from: "experiments", to: "conclusion" },
+    { from: "conclusion", to: "references" }
+  ];
+
+  const config = {
+    width: 800,
+    height: 500,
+    margin: { top: 20, right: 20, bottom: 20, left: 20 }
+  };
+
+  function createPaperReadingDiagram() {
+    const container = d3.select("#paper-reading-strategy");
+    if (container.empty()) return;
+    
+    container.selectAll("*").remove();
+
+    const svg = container.append("svg")
+      .attr("width", config.width)
+      .attr("height", config.height)
+      .attr("viewBox", `0 0 ${config.width} ${config.height}`)
+      .style("background", "white");
+
+    // Add gradient definitions
+    const defs = svg.append("defs");
+    
+    // Create gradients for each section
+    paperSections.forEach(section => {
+      const gradient = defs.append("linearGradient")
+        .attr("id", `gradient-${section.id}`)
+        .attr("x1", "0%").attr("y1", "0%")
+        .attr("x2", "100%").attr("y2", "100%");
+      
+      gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", section.color)
+        .attr("stop-opacity", 0.8);
+      
+      gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", section.color)
+        .attr("stop-opacity", 0.6);
+    });
+
+    // Draw connections first (behind nodes)
+    const g = svg.append("g");
+    
+    connections.forEach(conn => {
+      const fromSection = paperSections.find(s => s.id === conn.from);
+      const toSection = paperSections.find(s => s.id === conn.to);
+      
+      if (fromSection && toSection) {
+        g.append("line")
+          .attr("x1", fromSection.x)
+          .attr("y1", fromSection.y)
+          .attr("x2", toSection.x)
+          .attr("y2", toSection.y)
+          .attr("stroke", "#bdc3c7")
+          .attr("stroke-width", 2)
+          .attr("stroke-dasharray", "5,5")
+          .attr("opacity", 0.6)
+          .attr("marker-end", "url(#arrowhead)");
+      }
+    });
+
+    // Add arrowhead marker
+    defs.append("marker")
+      .attr("id", "arrowhead")
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 8)
+      .attr("refY", 0)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M0,-5L10,0L0,5")
+      .attr("fill", "#7f8c8d");
+
+    // Create tooltip
+    const tooltip = d3.select("body").append("div")
+      .attr("class", "paper-tooltip")
+      .style("position", "absolute")
+      .style("background", "rgba(0,0,0,0.9)")
+      .style("color", "white")
+      .style("padding", "12px")
+      .style("border-radius", "8px")
+      .style("font-size", "13px")
+      .style("max-width", "300px")
+      .style("line-height", "1.4")
+      .style("pointer-events", "none")
+      .style("opacity", 0)
+      .style("z-index", 1000);
+
+    // Draw section nodes
+    const nodes = g.selectAll(".section-node")
+      .data(paperSections)
+      .enter().append("g")
+      .attr("class", "section-node")
+      .attr("transform", d => `translate(${d.x}, ${d.y})`)
+      .style("cursor", "pointer");
+
+    // Section circles with gradients
+    nodes.append("circle")
+      .attr("r", 35)
+      .attr("fill", d => `url(#gradient-${d.id})`)
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 3)
+      .style("filter", "drop-shadow(0 4px 8px rgba(0,0,0,0.2))")
+      .on("mouseover", function(event, d) {
+        d3.select(this)
+          .transition().duration(200)
+          .attr("r", 40);
+        
+        tooltip.style("opacity", 1)
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 10) + "px")
+          .html(`
+            <strong>${d.title}</strong><br/>
+            <em>${d.description}</em><br/>
+            <span style="color: #f39c12;">Priority: ${d.priority}</span><br/>
+            <span style="color: #3498db;">Reading Passes: ${d.passes.join(", ")}</span>
+          `);
+      })
+      .on("mouseout", function(event, d) {
+        d3.select(this)
+          .transition().duration(200)
+          .attr("r", 35);
+        
+        tooltip.style("opacity", 0);
+      });
+
+    // Section titles
+    nodes.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", "0.35em")
+      .attr("fill", "white")
+      .attr("font-size", "12px")
+      .attr("font-weight", "bold")
+      .attr("text-shadow", "0 1px 2px rgba(0,0,0,0.5)")
+      .text(d => d.title)
+      .style("pointer-events", "none");
+
+    // Priority indicators
+    nodes.append("circle")
+      .attr("cx", 25)
+      .attr("cy", -25)
+      .attr("r", 8)
+      .attr("fill", d => {
+        switch(d.priority) {
+          case "CRITICAL": return "#e74c3c";
+          case "HIGH": return "#f39c12";
+          case "MEDIUM": return "#f1c40f";
+          default: return "#95a5a6";
+        }
+      })
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 2);
+
+    // Legend
+    const legend = svg.append("g")
+      .attr("transform", "translate(20, 20)");
+
+    const legendData = [
+      { label: "Critical", color: "#e74c3c" },
+      { label: "High", color: "#f39c12" },
+      { label: "Medium", color: "#f1c40f" },
+      { label: "Low", color: "#95a5a6" }
+    ];
+
+    const legendItems = legend.selectAll(".legend-item")
+      .data(legendData)
+      .enter().append("g")
+      .attr("class", "legend-item")
+      .attr("transform", (d, i) => `translate(0, ${i * 20})`);
+
+    legendItems.append("circle")
+      .attr("r", 6)
+      .attr("fill", d => d.color);
+
+    legendItems.append("text")
+      .attr("x", 12)
+      .attr("y", 4)
+      .attr("font-size", "11px")
+      .attr("fill", "#333")
+      .text(d => d.label);
+
+    // Title
+    svg.append("text")
+      .attr("x", config.width / 2)
+      .attr("y", 25)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "16px")
+      .attr("font-weight", "bold")
+      .attr("fill", "#2c3e50")
+      .text("Academic Paper Structure & Reading Strategy");
+  }
+
+  // Initialize
+  function initDiagram() {
+    try {
+      createPaperReadingDiagram();
+    } catch (error) {
+      console.error("Error creating paper reading diagram:", error);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDiagram);
+  } else {
+    setTimeout(initDiagram, 100);
+  }
+})();
+</script>
 
 ### 1.2 Making a Research Plan & Documenting Results 📋
 
