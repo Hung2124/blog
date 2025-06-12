@@ -1,5 +1,5 @@
 ---
-title: "Week 1: AIO 2025 Knowledge Synthesis - Comprehensive Learning Guide"
+title: "AIO2025 - Week 1: AIO 2025 Knowledge Synthesis - Comprehensive Learning Guide"
 published: 2025-06-11
 description: "Comprehensive summary of Week 1 AIO 2025 program covering essential skills, Python fundamentals, database basics, coding methodologies, and practical AI exercises."
 image: ""
@@ -28,7 +28,7 @@ Effectively finding and understanding research is a cornerstone of AI.
 - **Papers With Code:** A great resource that links research papers to their corresponding code implementations
 - **AIO Community:** Leverage the collective knowledge of your peers for recommendations and discussions
 
-#### How to Read Papers (The 3-Pass Approach):
+#### How to Read Papers (Step-by-Step Roadmap):
 
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; margin: 30px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
 
