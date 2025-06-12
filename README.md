@@ -525,6 +525,6 @@ Using AI Blog Pro? We'd love to feature your blog! Submit a PR adding your site 
 
 ---
 
-**⭐ Star this repository nếu you find it helpful! It helps others discover the project.**
+**⭐ Star this repository if you find it helpful! It helps others discover the project.**
 
 **🚀 Happy blogging! Share your AI knowledge với the world!**
