@@ -1,16 +1,18 @@
 ---
-import ArchivePanel from "@components/ArchivePanel.svelte";
-import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
-import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getSortedPosts } from "../utils/content-utils";
+import ArchivePanel from '@components/ArchivePanel.svelte';
+import I18nKey from '@i18n/i18nKey';
+import { i18n } from '@i18n/translation';
+import MainGridLayout from '@layouts/MainGridLayout.astro';
+import { getSortedPosts } from '../utils/content-utils';
 
 const sortedPosts = await getSortedPosts();
 
 // Parse query parameters server-side
-const tags = Astro.url.searchParams.has("tag") ? Astro.url.searchParams.getAll("tag") : [];
-const categories = Astro.url.searchParams.has("category") ? Astro.url.searchParams.getAll("category") : [];
-const uncategorized = Astro.url.searchParams.get("uncategorized");
+const tags = Astro.url.searchParams.has('tag') ? Astro.url.searchParams.getAll('tag') : [];
+const categories = Astro.url.searchParams.has('category') ? Astro.url.searchParams.getAll('category') : [];
+const uncategorized = Astro.url.searchParams.get('uncategorized');
+
+// Note: Client-side parameter parsing in ArchivePanel.svelte
 ---
 
 <MainGridLayout title={i18n(I18nKey.archive)}>

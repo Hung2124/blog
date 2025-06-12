@@ -1,3 +1,8 @@
+---
+title: "About AI Journey Blog"
+description: "A personal documentation space chronicling my artificial intelligence learning experience at AIO Vietnam 2025"
+---
+
 # About AI Journey Blog
 
 Welcome to my **AI Journey Blog** - a personal documentation space where I chronicle my artificial intelligence learning experience at **AIO Vietnam 2025**.

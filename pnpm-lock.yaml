@@ -216,9 +216,15 @@ importers:
       '@rollup/plugin-yaml':
         specifier: ^4.1.2
         version: 4.1.2(rollup@2.79.2)
+      '@stagewise-plugins/react':
+        specifier: ^0.4.5
+        version: 0.4.5(@stagewise/toolbar@0.4.5)
       '@stagewise/toolbar':
-        specifier: ^0.4.4
-        version: 0.4.4
+        specifier: ^0.4.5
+        version: 0.4.5
+      '@stagewise/toolbar-react':
+        specifier: ^0.4.5
+        version: 0.4.5(@types/react@19.1.6)(react@18.3.1)
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
@@ -1826,8 +1832,19 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@stagewise/toolbar@0.4.4':
-    resolution: {integrity: sha512-hVxGqeYFx780m9SIv+YqhHx4o/fq94pMwr8OoemOCyOKozCGkvSIjpqkONvUyY5yWR+AVcop2p79LsSTdA6Etw==}
+  '@stagewise-plugins/react@0.4.5':
+    resolution: {integrity: sha512-WIcmGSfDd2LoqfpgyUFUS0w3ALuNMGcLrwmSJlWvNQJIQbZaGg+zwsp4x/6azAOuhbo338cf07EHaYUaThKXIQ==}
+    peerDependencies:
+      '@stagewise/toolbar': 0.4.5
+
+  '@stagewise/toolbar-react@0.4.5':
+    resolution: {integrity: sha512-/IqqSWZMiS2arPka+dLa4BB5iyLzY33i3gH8f6RXwTgX3FkCIYPs8/k+ie1zWzD+HII9lia9F+OGiSS1uTjiZg==}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      react: '>=18.0.0'
+
+  '@stagewise/toolbar@0.4.5':
+    resolution: {integrity: sha512-FFOuuBnfcSKwSBnfuclgFygd8mvHnJZXgr2KCJofyww5CZxr7sYl0IuSKLngufK+880o5mR0C8IV9lQV9JY6bg==}
 
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
@@ -2592,6 +2609,15 @@ packages:
 
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  debug@4.4.1:
+    resolution: {integrity: sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -7400,7 +7426,17 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@stagewise/toolbar@0.4.4': {}
+  '@stagewise-plugins/react@0.4.5(@stagewise/toolbar@0.4.5)':
+    dependencies:
+      '@stagewise/toolbar': 0.4.5
+
+  '@stagewise/toolbar-react@0.4.5(@types/react@19.1.6)(react@18.3.1)':
+    dependencies:
+      '@stagewise/toolbar': 0.4.5
+      '@types/react': 19.1.6
+      react: 18.3.1
+
+  '@stagewise/toolbar@0.4.5': {}
 
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     dependencies:
@@ -8037,7 +8073,7 @@ snapshots:
     dependencies:
       bytes: 3.1.2
       content-type: 1.0.5
-      debug: 4.4.0
+      debug: 4.4.1
       http-errors: 2.0.0
       iconv-lite: 0.6.3
       on-finished: 2.4.1
@@ -8422,6 +8458,10 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
+  debug@4.4.1:
+    dependencies:
+      ms: 2.1.3
+
   decode-named-character-reference@1.1.0:
     dependencies:
       character-entities: 2.0.2
@@ -8729,7 +8769,7 @@ snapshots:
       content-type: 1.0.5
       cookie: 0.7.2
       cookie-signature: 1.2.2
-      debug: 4.4.0
+      debug: 4.4.1
       encodeurl: 2.0.0
       escape-html: 1.0.3
       etag: 1.8.1
@@ -8823,7 +8863,7 @@ snapshots:
 
   finalhandler@2.1.0:
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.1
       encodeurl: 2.0.0
       escape-html: 1.0.3
       on-finished: 2.4.1
@@ -11085,7 +11125,7 @@ snapshots:
 
   router@2.2.0:
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.1
       depd: 2.0.0
       is-promise: 4.0.0
       parseurl: 1.3.3
@@ -11159,7 +11199,7 @@ snapshots:
 
   send@1.2.0:
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.1
       encodeurl: 2.0.0
       escape-html: 1.0.3
       etag: 1.8.1

@@ -1,16 +1,16 @@
 ---
-import path from "node:path";
-import type { CollectionEntry } from "astro:content";
-import { Icon } from "astro-icon/components";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
-import { getDir } from "../utils/url-utils";
-import PostMetadata from "./PostMeta.astro";
-import ImageWrapper from "./misc/ImageWrapper.astro";
+import path from 'node:path';
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import I18nKey from '../i18n/i18nKey';
+import { i18n } from '../i18n/translation';
+import { getDir } from '../utils/url-utils';
+import PostMetadata from './PostMeta.astro';
+import ImageWrapper from './misc/ImageWrapper.astro';
 
 interface Props {
 	class?: string;
-	entry: CollectionEntry<"posts">;
+	entry: CollectionEntry<'posts'>;
 	title: string;
 	url: string;
 	published: Date;
@@ -22,23 +22,12 @@ interface Props {
 	draft: boolean;
 	style: string;
 }
-const {
-	entry,
-	title,
-	url,
-	published,
-	updated,
-	tags,
-	category,
-	image,
-	description,
-	style,
-} = Astro.props;
+const { entry, title, url, published, updated, tags, category, image, description, style } = Astro.props;
 const className = Astro.props.class;
 
-const hasCover = image !== undefined && image !== null && image !== "";
+const hasCover = image !== undefined && image !== null && image !== '';
 
-const coverWidth = "28%";
+const coverWidth = '28%';
 
 const { remarkPluginFrontmatter } = await entry.render();
 ---

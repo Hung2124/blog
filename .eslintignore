@@ -1,0 +1,13 @@
+# Ignore components with math formulas
+src/components/*Test.astro
+
+# Ignore math content files
+**/*math*.astro
+**/*formula*.astro
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+.astro/ 

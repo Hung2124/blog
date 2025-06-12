@@ -1,0 +1,81 @@
+/* Mermaid diagrams styling */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  overflow: auto;
+  min-height: 100px;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Code blocks that should become mermaid - hide temporarily */
+pre code.language-mermaid {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+/* When mermaid is processed, the pre block will be removed */
+pre:has(code.language-mermaid) {
+  background: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  text-align: center;
+  padding: 2rem;
+}
+
+pre:has(code.language-mermaid)::before {
+  content: "🔄 Loading Mermaid Diagram...";
+  display: block;
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* Dark mode support for loading state */
+:root.dark pre:has(code.language-mermaid) {
+  background: #2d3748;
+  border-color: #4a5568;
+}
+
+:root.dark pre:has(code.language-mermaid)::before {
+  color: #a0aec0;
+}
+
+/* Math formulas styling */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.katex {
+  font-size: 1.1em;
+}
+
+/* Math display containers */
+.math-display {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+:root.dark .math-display {
+  background: #2d3748;
+}
+
+/* Blog post specific styling */
+.prose .mermaid {
+  margin: 2rem auto;
+  max-width: none;
+}
+
+.prose pre code.language-mermaid {
+  white-space: pre-wrap;
+} 

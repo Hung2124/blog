@@ -1,13 +1,13 @@
 <script lang="ts">
-import type { SearchResult } from "@/global";
-import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
-import Icon from "@iconify/svelte";
-import { url } from "@utils/url-utils.ts";
-import { onMount } from "svelte";
+import type { SearchResult } from '@/global';
+import I18nKey from '@i18n/i18nKey';
+import { i18n } from '@i18n/translation';
+import Icon from '@iconify/svelte';
+import { url } from '@utils/url-utils.ts';
+import { onMount } from 'svelte';
 
-let keywordDesktop = "";
-let keywordMobile = "";
+let keywordDesktop = '';
+let keywordMobile = '';
 let result: SearchResult[] = [];
 let isSearching = false;
 let pagefindLoaded = false;
@@ -15,35 +15,34 @@ let initialized = false;
 
 const fakeResult: SearchResult[] = [
 	{
-		url: url("/"),
+		url: url('/'),
 		meta: {
-			title: "This Is a Fake Search Result",
+			title: 'This Is a Fake Search Result',
 		},
-		excerpt:
-			"Because the search cannot work in the <mark>dev</mark> environment.",
+		excerpt: 'Because the search cannot work in the <mark>dev</mark> environment.',
 	},
 	{
-		url: url("/"),
+		url: url('/'),
 		meta: {
-			title: "If You Want to Test the Search",
+			title: 'If You Want to Test the Search',
 		},
-		excerpt: "Try running <mark>npm build && npm preview</mark> instead.",
+		excerpt: 'Try running <mark>npm build && npm preview</mark> instead.',
 	},
 ];
 
 const togglePanel = () => {
-	const panel = document.getElementById("search-panel");
-	panel?.classList.toggle("float-panel-closed");
+	const panel = document.getElementById('search-panel');
+	panel?.classList.toggle('float-panel-closed');
 };
 
 const setPanelVisibility = (show: boolean, isDesktop: boolean): void => {
-	const panel = document.getElementById("search-panel");
+	const panel = document.getElementById('search-panel');
 	if (!panel || !isDesktop) return;
 
 	if (show) {
-		panel.classList.remove("float-panel-closed");
+		panel.classList.remove('float-panel-closed');
 	} else {
-		panel.classList.add("float-panel-closed");
+		panel.classList.add('float-panel-closed');
 	}
 };
 
@@ -65,20 +64,18 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 
 		if (import.meta.env.PROD && pagefindLoaded && window.pagefind) {
 			const response = await window.pagefind.search(keyword);
-			searchResults = await Promise.all(
-				response.results.map((item) => item.data()),
-			);
+			searchResults = await Promise.all(response.results.map((item) => item.data()));
 		} else if (import.meta.env.DEV) {
 			searchResults = fakeResult;
 		} else {
 			searchResults = [];
-			console.error("Pagefind is not available in production environment.");
+			console.error('Pagefind is not available in production environment.');
 		}
 
 		result = searchResults;
 		setPanelVisibility(result.length > 0, isDesktop);
 	} catch (error) {
-		console.error("Search error:", error);
+		console.error('Search error:', error);
 		result = [];
 		setPanelVisibility(false, isDesktop);
 	} finally {
@@ -89,36 +86,29 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 onMount(() => {
 	const initializeSearch = () => {
 		initialized = true;
-		pagefindLoaded =
-			typeof window !== "undefined" &&
-			!!window.pagefind &&
-			typeof window.pagefind.search === "function";
-		console.log("Pagefind status on init:", pagefindLoaded);
+		pagefindLoaded = typeof window !== 'undefined' && !!window.pagefind && typeof window.pagefind.search === 'function';
+		console.log('Pagefind status on init:', pagefindLoaded);
 		if (keywordDesktop) search(keywordDesktop, true);
 		if (keywordMobile) search(keywordMobile, false);
 	};
 
 	if (import.meta.env.DEV) {
-		console.log(
-			"Pagefind is not available in development mode. Using mock data.",
-		);
+		console.log('Pagefind is not available in development mode. Using mock data.');
 		initializeSearch();
 	} else {
-		document.addEventListener("pagefindready", () => {
-			console.log("Pagefind ready event received.");
+		document.addEventListener('pagefindready', () => {
+			console.log('Pagefind ready event received.');
 			initializeSearch();
 		});
-		document.addEventListener("pagefindloaderror", () => {
-			console.warn(
-				"Pagefind load error event received. Search functionality will be limited.",
-			);
+		document.addEventListener('pagefindloaderror', () => {
+			console.warn('Pagefind load error event received. Search functionality will be limited.');
 			initializeSearch(); // Initialize with pagefindLoaded as false
 		});
 
 		// Fallback in case events are not caught or pagefind is already loaded by the time this script runs
 		setTimeout(() => {
 			if (!initialized) {
-				console.log("Fallback: Initializing search after timeout.");
+				console.log('Fallback: Initializing search after timeout.');
 				initializeSearch();
 			}
 		}, 2000); // Adjust timeout as needed

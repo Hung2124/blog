@@ -1,17 +1,17 @@
 ---
 
-import MainGridLayout from "../layouts/MainGridLayout.astro";
+import MainGridLayout from '../layouts/MainGridLayout.astro';
 
-import { getEntry } from "astro:content";
-import { render } from "astro:content";
-import Markdown from "@components/misc/Markdown.astro";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
+import { getEntry } from 'astro:content';
+import { render } from 'astro:content';
+import Markdown from '@components/misc/Markdown.astro';
+import I18nKey from '../i18n/i18nKey';
+import { i18n } from '../i18n/translation';
 
-const aboutPost = await getEntry("spec", "about");
+const aboutPost = await getEntry('spec', 'about');
 
 if (!aboutPost) {
-	throw new Error("About page content not found");
+	throw new Error('About page content not found');
 }
 
 const { Content } = await render(aboutPost);

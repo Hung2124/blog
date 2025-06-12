@@ -1,18 +1,18 @@
 ---
-import path from "node:path";
-import License from "@components/misc/License.astro";
-import Markdown from "@components/misc/Markdown.astro";
-import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
-import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getSortedPosts } from "@utils/content-utils";
-import { getDir, getPostUrlBySlug } from "@utils/url-utils";
-import { Icon } from "astro-icon/components";
-import { licenseConfig } from "src/config";
-import PostMetadata from "../../components/PostMeta.astro";
-import ImageWrapper from "../../components/misc/ImageWrapper.astro";
-import { profileConfig, siteConfig } from "../../config";
-import { formatDateToYYYYMMDD } from "../../utils/date-utils";
+import path from 'node:path';
+import License from '@components/misc/License.astro';
+import Markdown from '@components/misc/Markdown.astro';
+import I18nKey from '@i18n/i18nKey';
+import { i18n } from '@i18n/translation';
+import MainGridLayout from '@layouts/MainGridLayout.astro';
+import { getSortedPosts } from '@utils/content-utils';
+import { getDir, getPostUrlBySlug } from '@utils/url-utils';
+import { Icon } from 'astro-icon/components';
+import { licenseConfig } from 'src/config';
+import PostMetadata from '../../components/PostMeta.astro';
+import ImageWrapper from '../../components/misc/ImageWrapper.astro';
+import { profileConfig, siteConfig } from '../../config';
+import { formatDateToYYYYMMDD } from '../../utils/date-utils';
 
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
@@ -28,20 +28,18 @@ const { Content, headings } = await entry.render();
 const { remarkPluginFrontmatter } = await entry.render();
 
 const jsonLd = {
-	"@context": "https://schema.org",
-	"@type": "BlogPosting",
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
 	headline: entry.data.title,
 	description: entry.data.description || entry.data.title,
 	keywords: entry.data.tags,
 	author: {
-		"@type": "Person",
+		'@type': 'Person',
 		name: profileConfig.name,
 		url: Astro.site,
 	},
 	datePublished: formatDateToYYYYMMDD(entry.data.published),
-	inLanguage: entry.data.lang
-		? entry.data.lang.replace("_", "-")
-		: siteConfig.lang.replace("_", "-"),
+	inLanguage: entry.data.lang ? entry.data.lang.replace('_', '-') : siteConfig.lang.replace('_', '-'),
 	// TODO include cover image here
 };
 ---

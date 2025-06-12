@@ -1,5 +1,5 @@
 ---
-import path from "node:path";
+import path from 'node:path';
 interface Props {
 	id?: string;
 	src: string;
@@ -8,41 +8,32 @@ interface Props {
 	position?: string;
 	basePath?: string;
 }
-import { Image } from "astro:assets";
-import { url } from "../../utils/url-utils";
+import { Image } from 'astro:assets';
+import { url } from '../../utils/url-utils';
 
-const { id, src, alt, position = "center", basePath = "/" } = Astro.props;
+const { id, src, alt, position = 'center', basePath = '/' } = Astro.props;
 const className = Astro.props.class;
 
-const isLocal = !(
-	src.startsWith("/") ||
-	src.startsWith("http") ||
-	src.startsWith("https") ||
-	src.startsWith("data:")
-);
-const isPublic = src.startsWith("/");
+const isLocal = !(src.startsWith('/') || src.startsWith('http') || src.startsWith('https') || src.startsWith('data:'));
+const isPublic = src.startsWith('/');
 
 // TODO temporary workaround for images dynamic import
 // https://github.com/withastro/astro/issues/3373
 // biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
 let img;
 if (isLocal) {
-	const files = import.meta.glob<ImageMetadata>("../../**", {
-		import: "default",
+	const files = import.meta.glob<ImageMetadata>('../../**', {
+		import: 'default',
 	});
-	let normalizedPath = path
-		.normalize(path.join("../../", basePath, src))
-		.replace(/\\/g, "/");
+	const normalizedPath = path.normalize(path.join('../../', basePath, src)).replace(/\\/g, '/');
 	const file = files[normalizedPath];
 	if (!file) {
-		console.error(
-			`\n[ERROR] Image file not found: ${normalizedPath.replace("../../", "src/")}`,
-		);
+		console.error(`\n[ERROR] Image file not found: ${normalizedPath.replace('../../', 'src/')}`);
 	}
 	img = await file();
 }
 
-const imageClass = "w-full h-full object-cover";
+const imageClass = 'w-full h-full object-cover';
 const imageStyle = `object-position: ${position}`;
 ---
 <div id={id} class:list={[className, 'overflow-hidden relative']}>

@@ -1,10 +1,11 @@
 ---
-import { getCollection } from "astro:content";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
-import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { getCollection } from 'astro:content';
+import I18nKey from '../i18n/i18nKey';
+import { i18n } from '../i18n/translation';
+import MainGridLayout from '../layouts/MainGridLayout.astro';
+import { url } from '../utils/url-utils';
 
-const posts = await getCollection("posts", ({ data }) => {
+const posts = await getCollection('posts', ({ data }) => {
 	return import.meta.env.PROD ? data.draft !== true : true;
 });
 
@@ -12,7 +13,7 @@ const posts = await getCollection("posts", ({ data }) => {
 const categories = new Map();
 
 for (const post of posts) {
-	const category = post.data.category || "Uncategorized";
+	const category = post.data.category || 'Uncategorized';
 	if (!categories.has(category)) {
 		categories.set(category, []);
 	}
@@ -20,9 +21,7 @@ for (const post of posts) {
 }
 
 // Sort categories by post count (descending)
-const sortedCategories = Array.from(categories.entries()).sort(
-	(a, b) => b[1].length - a[1].length,
-);
+const sortedCategories = Array.from(categories.entries()).sort((a, b) => b[1].length - a[1].length);
 ---
 
 <MainGridLayout title={i18n(I18nKey.categories)} description="Browse posts by categories">
@@ -52,7 +51,7 @@ const sortedCategories = Array.from(categories.entries()).sort(
                         <div class="space-y-2">
                             {categoryPosts.slice(0, 3).map((post: any) => (
                                 <a 
-                                    href={`/posts/${post.slug}/`}
+                                    href={url(`/posts/${post.slug}/`)}
                                     class="block text-sm text-[var(--content-text-color)] hover:text-[var(--primary)] transition-colors duration-200 truncate"
                                 >
                                     {post.data.title}
@@ -68,7 +67,7 @@ const sortedCategories = Array.from(categories.entries()).sort(
                         
                         <div class="mt-3">
                             <a 
-                                href={`/blog/archive?category=${encodeURIComponent(category)}`}
+                                href={url(`/archive/?category=${encodeURIComponent(category)}`)}
                                 class="text-xs text-[var(--primary)] hover:underline font-medium"
                             >
                                 View all →

@@ -23,5 +23,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "src/types/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", ".astro"]
 }
