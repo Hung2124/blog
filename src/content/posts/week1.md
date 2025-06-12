@@ -46,7 +46,7 @@ Effectively finding and understanding research is a cornerstone of AI.
 
 <div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 40px; border-radius: 20px; margin: 30px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
 
-<h4 style="text-align: center; color: white; margin-bottom: 35px; font-size: 24px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">👨‍⚕️ Dr Experience - Advanced Reading Method</h4>
+<h4 style="text-align: center; color: white; margin-bottom: 35px; font-size: 24px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">🎓 Dr Experience - Advanced Reading Method</h4>
 
 <div id="dr-experience-method" style="background: rgba(255,255,255,0.95); border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin-bottom: 30px;"></div>
 
