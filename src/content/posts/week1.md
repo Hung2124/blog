@@ -32,47 +32,27 @@ Effectively finding and understanding research is a cornerstone of AI.
 
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; margin: 30px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
 
-<h4 style="text-align: center; color: white; margin-bottom: 35px; font-size: 24px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">📖 Academic Paper Reading Strategy</h4>
+<h4 style="text-align: center; color: white; margin-bottom: 35px; font-size: 24px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">📖 Research Paper Reading Roadmap</h4>
 
-<div id="paper-reading-strategy" style="background: rgba(255,255,255,0.95); border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin-bottom: 30px;"></div>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 25px;">
-
-<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px);">
-<h5 style="color: white; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
-  <span style="color: #ff6b6b; font-size: 20px;">📋</span> Pass 1: Quick Scan (5-10 mins)
-</h5>
-<p style="color: white; margin: 0; opacity: 0.9; font-size: 15px; line-height: 1.5;">
-Abstract → Introduction → Conclusion → Figures<br/>
-<strong>Goal:</strong> Decide if paper is worth reading
-</p>
-</div>
-
-<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px);">
-<h5 style="color: white; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
-  <span style="color: #4ecdc4; font-size: 20px;">🔍</span> Pass 2: Detailed Read (30-60 mins)
-</h5>
-<p style="color: white; margin: 0; opacity: 0.9; font-size: 15px; line-height: 1.5;">
-Full paper except complex proofs<br/>
-<strong>Goal:</strong> Understand methodology and results
-</p>
-</div>
-
-<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; backdrop-filter: blur(10px);">
-<h5 style="color: white; margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
-  <span style="color: #95e1d3; font-size: 20px;">🧠</span> Pass 3: Critical Analysis (1-3 hours)
-</h5>
-<p style="color: white; margin: 0; opacity: 0.9; font-size: 15px; line-height: 1.5;">
-Deep dive, question assumptions<br/>
-<strong>Goal:</strong> Master the technique completely
-</p>
-</div>
-
-</div>
+<div id="paper-reading-roadmap" style="background: rgba(255,255,255,0.95); border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin-bottom: 30px;"></div>
 
 <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px);">
 <p style="margin: 0; color: white; font-size: 16px; opacity: 0.95;">
-<strong>💡 Pro Tip:</strong> Each section serves a specific purpose - follow the reading flow for maximum efficiency
+<strong>💡 Reading Strategy:</strong> Follow the 7-step sequence for systematic paper comprehension
+</p>
+</div>
+
+</div>
+
+<div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 40px; border-radius: 20px; margin: 30px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+
+<h4 style="text-align: center; color: white; margin-bottom: 35px; font-size: 24px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">👨‍⚕️ Dr Experience - Advanced Reading Method</h4>
+
+<div id="dr-experience-method" style="background: rgba(255,255,255,0.95); border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin-bottom: 30px;"></div>
+
+<div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px);">
+<p style="margin: 0; color: white; font-size: 16px; opacity: 0.95;">
+<strong>🎯 Dr's Approach:</strong> Strategic 4-stage method for efficient paper analysis
 </p>
 </div>
 
@@ -81,92 +61,77 @@ Deep dive, question assumptions<br/>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 (function() {
-  // Paper sections data with descriptions - adjusted positions to fit container
-  const paperSections = [
+  // 7-step roadmap based on user's exact specification
+  const roadmapSteps = [
     {
-      id: "abstract",
+      step: 1,
       title: "Abstract",
       description: "Why this paper matters – read this first to decide if you should invest your time in the rest of the paper.",
-      priority: "HIGH",
       color: "#e74c3c",
-      x: 375, y: 70,
-      passes: [1, 2, 3]
+      x: 100, y: 100
     },
     {
-      id: "introduction", 
-      title: "Introduction",
+      step: 2,
+      title: "Introduction", 
       description: "Get a high-level overview of the problem and the authors' approach; this orients you before diving into details.",
-      priority: "HIGH",
       color: "#f39c12",
-      x: 200, y: 160,
-      passes: [1, 2, 3]
+      x: 300, y: 100
     },
     {
-      id: "related-work",
-      title: "Related Work", 
+      step: 3,
+      title: "Related Work",
       description: "See what other researchers have done in this area and how this paper distinguishes itself.",
-      priority: "MEDIUM",
       color: "#f1c40f",
-      x: 550, y: 160,
-      passes: [2, 3]
+      x: 500, y: 100
     },
     {
-      id: "approach",
+      step: 4,
       title: "Approach",
       description: "Study the meat of the paper – the detailed description of the algorithm or method. This is where the novel contributions live.",
-      priority: "CRITICAL",
       color: "#27ae60",
-      x: 375, y: 260,
-      passes: [2, 3]
+      x: 650, y: 100
     },
     {
-      id: "experiments",
-      title: "Experiments", 
+      step: 5,
+      title: "Experiments",
       description: "Examine the training setup, evaluation metrics, visualizations, and comparisons with prior work to judge the method's effectiveness.",
-      priority: "HIGH",
       color: "#3498db",
-      x: 200, y: 360,
-      passes: [1, 2, 3]
+      x: 500, y: 250
     },
     {
-      id: "conclusion",
+      step: 6,
       title: "Conclusion",
       description: "Note the key takeaways and suggested directions for future research.",
-      priority: "HIGH", 
       color: "#9b59b6",
-      x: 550, y: 360,
-      passes: [1, 2, 3]
+      x: 300, y: 250
     },
     {
-      id: "references",
+      step: 7,
       title: "References",
       description: "Use this list to trace back important prior work and follow up on ideas you want to explore further.",
-      priority: "LOW",
       color: "#95a5a6",
-      x: 375, y: 430,
-      passes: [2, 3]
+      x: 100, y: 250
     }
   ];
 
-  // Reading flow connections - following the numbered sequence from the image
+  // Sequential connections 1→2→3→4→5→6→7
   const connections = [
-    { from: "abstract", to: "introduction" },      // 1 → 2
-    { from: "introduction", to: "related-work" },  // 2 → 3
-    { from: "related-work", to: "approach" },      // 3 → 4
-    { from: "approach", to: "experiments" },       // 4 → 5
-    { from: "experiments", to: "conclusion" },     // 5 → 6
-    { from: "conclusion", to: "references" }       // 6 → 7
+    { from: 0, to: 1 }, // Abstract → Introduction
+    { from: 1, to: 2 }, // Introduction → Related Work  
+    { from: 2, to: 3 }, // Related Work → Approach
+    { from: 3, to: 4 }, // Approach → Experiments
+    { from: 4, to: 5 }, // Experiments → Conclusion
+    { from: 5, to: 6 }  // Conclusion → References
   ];
 
   const config = {
     width: 750,
-    height: 480,
-    margin: { top: 30, right: 30, bottom: 30, left: 30 },
-    nodeRadius: 32
+    height: 350,
+    nodeRadius: 35
   };
 
-  function createPaperReadingDiagram() {
-    const container = d3.select("#paper-reading-strategy");
+  function createRoadmapDiagram() {
+    const container = d3.select("#paper-reading-roadmap");
     if (container.empty()) return;
     
     container.selectAll("*").remove();
@@ -180,64 +145,24 @@ Deep dive, question assumptions<br/>
       .style("max-width", "100%")
       .style("height", "auto");
 
-    // Add gradient definitions
     const defs = svg.append("defs");
     
-    // Create gradients for each section
-    paperSections.forEach(section => {
+    // Create gradients
+    roadmapSteps.forEach(step => {
       const gradient = defs.append("linearGradient")
-        .attr("id", `gradient-${section.id}`)
+        .attr("id", `gradient-step-${step.step}`)
         .attr("x1", "0%").attr("y1", "0%")
         .attr("x2", "100%").attr("y2", "100%");
       
       gradient.append("stop")
         .attr("offset", "0%")
-        .attr("stop-color", section.color)
-        .attr("stop-opacity", 0.8);
+        .attr("stop-color", step.color)
+        .attr("stop-opacity", 0.9);
       
       gradient.append("stop")
         .attr("offset", "100%")
-        .attr("stop-color", section.color)
-        .attr("stop-opacity", 0.6);
-    });
-
-    // Draw connections first (behind nodes)
-    const g = svg.append("g");
-    
-    // Helper function to calculate connection points on circle edge
-    function getConnectionPoint(from, to, radius) {
-      const dx = to.x - from.x;
-      const dy = to.y - from.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const unitX = dx / distance;
-      const unitY = dy / distance;
-      
-      return {
-        fromX: from.x + unitX * radius,
-        fromY: from.y + unitY * radius,
-        toX: to.x - unitX * radius,
-        toY: to.y - unitY * radius
-      };
-    }
-    
-    connections.forEach(conn => {
-      const fromSection = paperSections.find(s => s.id === conn.from);
-      const toSection = paperSections.find(s => s.id === conn.to);
-      
-      if (fromSection && toSection) {
-        const points = getConnectionPoint(fromSection, toSection, config.nodeRadius);
-        
-        g.append("line")
-          .attr("x1", points.fromX)
-          .attr("y1", points.fromY)
-          .attr("x2", points.toX)
-          .attr("y2", points.toY)
-          .attr("stroke", "#bdc3c7")
-          .attr("stroke-width", 2)
-          .attr("stroke-dasharray", "5,5")
-          .attr("opacity", 0.6)
-          .attr("marker-end", "url(#arrowhead)");
-      }
+        .attr("stop-color", step.color)
+        .attr("stop-opacity", 0.7);
     });
 
     // Add arrowhead marker
@@ -251,51 +176,79 @@ Deep dive, question assumptions<br/>
       .attr("orient", "auto")
       .append("path")
       .attr("d", "M0,-5L10,0L0,5")
-      .attr("fill", "#7f8c8d");
+      .attr("fill", "#34495e");
+
+    const g = svg.append("g");
+
+    // Draw connections
+    connections.forEach(conn => {
+      const from = roadmapSteps[conn.from];
+      const to = roadmapSteps[conn.to];
+      
+      // Calculate connection points on circle edges
+      const dx = to.x - from.x;
+      const dy = to.y - from.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const unitX = dx / distance;
+      const unitY = dy / distance;
+      
+      const fromX = from.x + unitX * config.nodeRadius;
+      const fromY = from.y + unitY * config.nodeRadius;
+      const toX = to.x - unitX * config.nodeRadius;
+      const toY = to.y - unitY * config.nodeRadius;
+      
+      g.append("line")
+        .attr("x1", fromX)
+        .attr("y1", fromY)
+        .attr("x2", toX)
+        .attr("y2", toY)
+        .attr("stroke", "#34495e")
+        .attr("stroke-width", 3)
+        .attr("opacity", 0.7)
+        .attr("marker-end", "url(#arrowhead)");
+    });
 
     // Create tooltip
     const tooltip = d3.select("body").append("div")
-      .attr("class", "paper-tooltip")
+      .attr("class", "roadmap-tooltip")
       .style("position", "absolute")
       .style("background", "rgba(0,0,0,0.9)")
       .style("color", "white")
-      .style("padding", "12px")
+      .style("padding", "12px 16px")
       .style("border-radius", "8px")
-      .style("font-size", "13px")
-      .style("max-width", "300px")
-      .style("line-height", "1.4")
+      .style("font-size", "14px")
+      .style("max-width", "320px")
+      .style("line-height", "1.5")
       .style("pointer-events", "none")
       .style("opacity", 0)
       .style("z-index", 1000);
 
-    // Draw section nodes
-    const nodes = g.selectAll(".section-node")
-      .data(paperSections)
+    // Draw step nodes
+    const nodes = g.selectAll(".step-node")
+      .data(roadmapSteps)
       .enter().append("g")
-      .attr("class", "section-node")
+      .attr("class", "step-node")
       .attr("transform", d => `translate(${d.x}, ${d.y})`)
       .style("cursor", "pointer");
 
-    // Section circles with gradients
+    // Step circles
     nodes.append("circle")
       .attr("r", config.nodeRadius)
-      .attr("fill", d => `url(#gradient-${d.id})`)
+      .attr("fill", d => `url(#gradient-step-${d.step})`)
       .attr("stroke", "#fff")
-      .attr("stroke-width", 3)
-      .style("filter", "drop-shadow(0 4px 8px rgba(0,0,0,0.2))")
+      .attr("stroke-width", 4)
+      .style("filter", "drop-shadow(0 4px 12px rgba(0,0,0,0.2))")
       .on("mouseover", function(event, d) {
         d3.select(this)
           .transition().duration(200)
-          .attr("r", config.nodeRadius + 5);
+          .attr("r", config.nodeRadius + 8);
         
         tooltip.style("opacity", 1)
-          .style("left", (event.pageX + 10) + "px")
-          .style("top", (event.pageY - 10) + "px")
+          .style("left", (event.pageX + 15) + "px")
+          .style("top", (event.pageY - 15) + "px")
           .html(`
-            <strong>${d.title}</strong><br/>
-            <em>${d.description}</em><br/>
-            <span style="color: #f39c12;">Priority: ${d.priority}</span><br/>
-            <span style="color: #3498db;">Reading Passes: ${d.passes.join(", ")}</span>
+            <strong>Step ${d.step}: ${d.title}</strong><br/>
+            <span style="opacity: 0.9;">${d.description}</span>
           `);
       })
       .on("mouseout", function(event, d) {
@@ -306,107 +259,294 @@ Deep dive, question assumptions<br/>
         tooltip.style("opacity", 0);
       });
 
-    // Section numbers (like in the image)
+    // Step numbers
     nodes.append("circle")
-      .attr("cx", -22)
-      .attr("cy", -22)
-      .attr("r", 12)
+      .attr("r", 16)
       .attr("fill", "#2c3e50")
       .attr("stroke", "#fff")
       .attr("stroke-width", 2);
 
     nodes.append("text")
-      .attr("x", -22)
-      .attr("y", -18)
-      .attr("text-anchor", "middle")
-      .attr("fill", "white")
-      .attr("font-size", "12px")
-      .attr("font-weight", "bold")
-      .text((d, i) => i + 1)
-      .style("pointer-events", "none");
-
-    // Section titles
-    nodes.append("text")
       .attr("text-anchor", "middle")
       .attr("dy", "0.35em")
       .attr("fill", "white")
-      .attr("font-size", "11px")
+      .attr("font-size", "14px")
       .attr("font-weight", "bold")
-      .attr("text-shadow", "0 1px 2px rgba(0,0,0,0.5)")
+      .text(d => d.step)
+      .style("pointer-events", "none");
+
+    // Step titles below circles
+    nodes.append("text")
+      .attr("y", config.nodeRadius + 20)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#2c3e50")
+      .attr("font-size", "12px")
+      .attr("font-weight", "bold")
       .text(d => d.title)
       .style("pointer-events", "none");
-
-    // Reading recommendation indicators (thumbs up/down like in image)
-    nodes.append("text")
-      .attr("x", 22)
-      .attr("y", -18)
-      .attr("text-anchor", "middle")
-      .attr("font-size", "16px")
-      .text(d => {
-        // Based on image: thumbs up for important sections, thumbs down for skip/optional
-        switch(d.priority) {
-          case "CRITICAL": return "👍";
-          case "HIGH": return "👍";
-          case "MEDIUM": return "👎";
-          default: return "👎";
-        }
-      })
-      .style("pointer-events", "none");
-
-    // Legend - updated to match image style
-    const legend = svg.append("g")
-      .attr("transform", "translate(20, 20)");
-
-    const legendData = [
-      { label: "👍 Read thoughtfully", emoji: "👍" },
-      { label: "👎 Feel free to skip", emoji: "👎" },
-      { label: "🔢 Reading sequence", emoji: "1" }
-    ];
-
-    const legendItems = legend.selectAll(".legend-item")
-      .data(legendData)
-      .enter().append("g")
-      .attr("class", "legend-item")
-      .attr("transform", (d, i) => `translate(0, ${i * 22})`);
-
-    legendItems.append("text")
-      .attr("x", 0)
-      .attr("y", 4)
-      .attr("font-size", "14px")
-      .text(d => d.emoji);
-
-    legendItems.append("text")
-      .attr("x", 20)
-      .attr("y", 4)
-      .attr("font-size", "11px")
-      .attr("fill", "#333")
-      .attr("font-weight", "500")
-      .text(d => d.label);
 
     // Title
     svg.append("text")
       .attr("x", config.width / 2)
       .attr("y", 25)
       .attr("text-anchor", "middle")
-      .attr("font-size", "16px")
+      .attr("font-size", "18px")
       .attr("font-weight", "bold")
       .attr("fill", "#2c3e50")
-      .text("Academic Paper Structure & Reading Strategy");
+      .text("7-Step Research Paper Reading Strategy");
   }
 
   // Initialize
-  function initDiagram() {
+  function initRoadmap() {
     try {
-      createPaperReadingDiagram();
+      createRoadmapDiagram();
     } catch (error) {
-      console.error("Error creating paper reading diagram:", error);
+      console.error("Error creating roadmap diagram:", error);
     }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDiagram);
+    document.addEventListener('DOMContentLoaded', initRoadmap);
   } else {
-    setTimeout(initDiagram, 100);
+    setTimeout(initRoadmap, 100);
+  }
+})();
+
+// Dr Experience Method - Separate script
+(function() {
+  // 4-stage Dr Experience method
+  const drStages = [
+    {
+      stage: 1,
+      title: "Overview",
+      steps: ["Read Paper's title", "Read Abstract section"],
+      color: "#3498db",
+      x: 150, y: 80
+    },
+    {
+      stage: 2,
+      title: "Orientation", 
+      steps: ["Read Introduction section"],
+      color: "#9b59b6",
+      x: 400, y: 80
+    },
+    {
+      stage: 3,
+      title: "Results & Methods",
+      steps: ["Read Experimental Result", "Read \"The proposed Method\""],
+      color: "#e74c3c",
+      x: 550, y: 200
+    },
+    {
+      stage: 4,
+      title: "Broader Context",
+      steps: ["Read \"Related Works\""],
+      color: "#f39c12",
+      x: 200, y: 200
+    }
+  ];
+
+  // Stage connections
+  const stageConnections = [
+    { from: 0, to: 1 }, // Overview → Orientation
+    { from: 1, to: 2 }, // Orientation → Results & Methods
+    { from: 2, to: 3 }  // Results & Methods → Broader Context
+  ];
+
+  const drConfig = {
+    width: 700,
+    height: 280,
+    nodeRadius: 40
+  };
+
+  function createDrExperienceMethod() {
+    const container = d3.select("#dr-experience-method");
+    if (container.empty()) return;
+    
+    container.selectAll("*").remove();
+
+    const svg = container.append("svg")
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("viewBox", `0 0 ${drConfig.width} ${drConfig.height}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
+      .style("background", "white")
+      .style("max-width", "100%")
+      .style("height", "auto");
+
+    const defs = svg.append("defs");
+    
+    // Create gradients for stages
+    drStages.forEach(stage => {
+      const gradient = defs.append("linearGradient")
+        .attr("id", `gradient-dr-stage-${stage.stage}`)
+        .attr("x1", "0%").attr("y1", "0%")
+        .attr("x2", "100%").attr("y2", "100%");
+      
+      gradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", stage.color)
+        .attr("stop-opacity", 0.9);
+      
+      gradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", stage.color)
+        .attr("stop-opacity", 0.7);
+    });
+
+    // Add arrowhead marker
+    defs.append("marker")
+      .attr("id", "dr-arrowhead")
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 8)
+      .attr("refY", 0)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M0,-5L10,0L0,5")
+      .attr("fill", "#2c3e50");
+
+    const g = svg.append("g");
+
+    // Draw connections
+    stageConnections.forEach(conn => {
+      const from = drStages[conn.from];
+      const to = drStages[conn.to];
+      
+      // Calculate connection points
+      const dx = to.x - from.x;
+      const dy = to.y - from.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const unitX = dx / distance;
+      const unitY = dy / distance;
+      
+      const fromX = from.x + unitX * drConfig.nodeRadius;
+      const fromY = from.y + unitY * drConfig.nodeRadius;
+      const toX = to.x - unitX * drConfig.nodeRadius;
+      const toY = to.y - unitY * drConfig.nodeRadius;
+      
+      g.append("line")
+        .attr("x1", fromX)
+        .attr("y1", fromY)
+        .attr("x2", toX)
+        .attr("y2", toY)
+        .attr("stroke", "#2c3e50")
+        .attr("stroke-width", 3)
+        .attr("opacity", 0.7)
+        .attr("marker-end", "url(#dr-arrowhead)");
+    });
+
+    // Create tooltip
+    const drTooltip = d3.select("body").append("div")
+      .attr("class", "dr-tooltip")
+      .style("position", "absolute")
+      .style("background", "rgba(0,0,0,0.9)")
+      .style("color", "white")
+      .style("padding", "12px 16px")
+      .style("border-radius", "8px")
+      .style("font-size", "14px")
+      .style("max-width", "280px")
+      .style("line-height", "1.5")
+      .style("pointer-events", "none")
+      .style("opacity", 0)
+      .style("z-index", 1000);
+
+    // Draw stage nodes
+    const nodes = g.selectAll(".dr-stage-node")
+      .data(drStages)
+      .enter().append("g")
+      .attr("class", "dr-stage-node")
+      .attr("transform", d => `translate(${d.x}, ${d.y})`)
+      .style("cursor", "pointer");
+
+    // Stage circles
+    nodes.append("circle")
+      .attr("r", drConfig.nodeRadius)
+      .attr("fill", d => `url(#gradient-dr-stage-${d.stage})`)
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 4)
+      .style("filter", "drop-shadow(0 4px 12px rgba(0,0,0,0.2))")
+      .on("mouseover", function(event, d) {
+        d3.select(this)
+          .transition().duration(200)
+          .attr("r", drConfig.nodeRadius + 6);
+        
+        drTooltip.style("opacity", 1)
+          .style("left", (event.pageX + 15) + "px")
+          .style("top", (event.pageY - 15) + "px")
+          .html(`
+            <strong>Stage ${d.stage}: ${d.title}</strong><br/>
+            ${d.steps.map(step => `• ${step}`).join('<br/>')}
+          `);
+      })
+      .on("mouseout", function(event, d) {
+        d3.select(this)
+          .transition().duration(200)
+          .attr("r", drConfig.nodeRadius);
+        
+        drTooltip.style("opacity", 0);
+      });
+
+    // Stage numbers
+    nodes.append("circle")
+      .attr("r", 18)
+      .attr("fill", "#2c3e50")
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 3);
+
+    nodes.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", "0.35em")
+      .attr("fill", "white")
+      .attr("font-size", "16px")
+      .attr("font-weight", "bold")
+      .text(d => d.stage)
+      .style("pointer-events", "none");
+
+    // Stage titles below circles
+    nodes.append("text")
+      .attr("y", drConfig.nodeRadius + 25)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#2c3e50")
+      .attr("font-size", "13px")
+      .attr("font-weight", "bold")
+      .text(d => d.title)
+      .style("pointer-events", "none");
+
+    // Step count indicators
+    nodes.append("text")
+      .attr("y", drConfig.nodeRadius + 40)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#7f8c8d")
+      .attr("font-size", "11px")
+      .text(d => `${d.steps.length} step${d.steps.length > 1 ? 's' : ''}`)
+      .style("pointer-events", "none");
+
+    // Title
+    svg.append("text")
+      .attr("x", drConfig.width / 2)
+      .attr("y", 25)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "18px")
+      .attr("font-weight", "bold")
+      .attr("fill", "#2c3e50")
+      .text("Dr Experience - 4-Stage Strategic Reading Method");
+  }
+
+  // Initialize Dr Experience method
+  function initDrMethod() {
+    try {
+      createDrExperienceMethod();
+    } catch (error) {
+      console.error("Error creating Dr Experience method:", error);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDrMethod);
+  } else {
+    setTimeout(initDrMethod, 200);
   }
 })();
 </script>
