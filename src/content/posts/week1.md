@@ -81,7 +81,7 @@ Deep dive, question assumptions<br/>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 (function() {
-  // Paper sections data with descriptions
+  // Paper sections data with descriptions - adjusted positions to fit container
   const paperSections = [
     {
       id: "abstract",
@@ -89,7 +89,7 @@ Deep dive, question assumptions<br/>
       description: "Why this paper matters – read this first to decide if you should invest your time in the rest of the paper.",
       priority: "HIGH",
       color: "#e74c3c",
-      x: 400, y: 50,
+      x: 375, y: 70,
       passes: [1, 2, 3]
     },
     {
@@ -98,7 +98,7 @@ Deep dive, question assumptions<br/>
       description: "Get a high-level overview of the problem and the authors' approach; this orients you before diving into details.",
       priority: "HIGH",
       color: "#f39c12",
-      x: 200, y: 150,
+      x: 200, y: 160,
       passes: [1, 2, 3]
     },
     {
@@ -107,7 +107,7 @@ Deep dive, question assumptions<br/>
       description: "See what other researchers have done in this area and how this paper distinguishes itself.",
       priority: "MEDIUM",
       color: "#f1c40f",
-      x: 600, y: 150,
+      x: 550, y: 160,
       passes: [2, 3]
     },
     {
@@ -116,7 +116,7 @@ Deep dive, question assumptions<br/>
       description: "Study the meat of the paper – the detailed description of the algorithm or method. This is where the novel contributions live.",
       priority: "CRITICAL",
       color: "#27ae60",
-      x: 400, y: 250,
+      x: 375, y: 260,
       passes: [2, 3]
     },
     {
@@ -125,7 +125,7 @@ Deep dive, question assumptions<br/>
       description: "Examine the training setup, evaluation metrics, visualizations, and comparisons with prior work to judge the method's effectiveness.",
       priority: "HIGH",
       color: "#3498db",
-      x: 200, y: 350,
+      x: 200, y: 360,
       passes: [1, 2, 3]
     },
     {
@@ -134,7 +134,7 @@ Deep dive, question assumptions<br/>
       description: "Note the key takeaways and suggested directions for future research.",
       priority: "HIGH", 
       color: "#9b59b6",
-      x: 600, y: 350,
+      x: 550, y: 360,
       passes: [1, 2, 3]
     },
     {
@@ -143,27 +143,26 @@ Deep dive, question assumptions<br/>
       description: "Use this list to trace back important prior work and follow up on ideas you want to explore further.",
       priority: "LOW",
       color: "#95a5a6",
-      x: 400, y: 450,
+      x: 375, y: 430,
       passes: [2, 3]
     }
   ];
 
-  // Reading flow connections
+  // Reading flow connections - following the numbered sequence from the image
   const connections = [
-    { from: "abstract", to: "introduction" },
-    { from: "introduction", to: "related-work" },
-    { from: "introduction", to: "approach" },
-    { from: "related-work", to: "approach" },
-    { from: "approach", to: "experiments" },
-    { from: "approach", to: "conclusion" },
-    { from: "experiments", to: "conclusion" },
-    { from: "conclusion", to: "references" }
+    { from: "abstract", to: "introduction" },      // 1 → 2
+    { from: "introduction", to: "related-work" },  // 2 → 3
+    { from: "related-work", to: "approach" },      // 3 → 4
+    { from: "approach", to: "experiments" },       // 4 → 5
+    { from: "experiments", to: "conclusion" },     // 5 → 6
+    { from: "conclusion", to: "references" }       // 6 → 7
   ];
 
   const config = {
-    width: 800,
-    height: 500,
-    margin: { top: 20, right: 20, bottom: 20, left: 20 }
+    width: 750,
+    height: 480,
+    margin: { top: 30, right: 30, bottom: 30, left: 30 },
+    nodeRadius: 32
   };
 
   function createPaperReadingDiagram() {
@@ -173,10 +172,13 @@ Deep dive, question assumptions<br/>
     container.selectAll("*").remove();
 
     const svg = container.append("svg")
-      .attr("width", config.width)
-      .attr("height", config.height)
+      .attr("width", "100%")
+      .attr("height", "100%")
       .attr("viewBox", `0 0 ${config.width} ${config.height}`)
-      .style("background", "white");
+      .attr("preserveAspectRatio", "xMidYMid meet")
+      .style("background", "white")
+      .style("max-width", "100%")
+      .style("height", "auto");
 
     // Add gradient definitions
     const defs = svg.append("defs");
@@ -202,16 +204,34 @@ Deep dive, question assumptions<br/>
     // Draw connections first (behind nodes)
     const g = svg.append("g");
     
+    // Helper function to calculate connection points on circle edge
+    function getConnectionPoint(from, to, radius) {
+      const dx = to.x - from.x;
+      const dy = to.y - from.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const unitX = dx / distance;
+      const unitY = dy / distance;
+      
+      return {
+        fromX: from.x + unitX * radius,
+        fromY: from.y + unitY * radius,
+        toX: to.x - unitX * radius,
+        toY: to.y - unitY * radius
+      };
+    }
+    
     connections.forEach(conn => {
       const fromSection = paperSections.find(s => s.id === conn.from);
       const toSection = paperSections.find(s => s.id === conn.to);
       
       if (fromSection && toSection) {
+        const points = getConnectionPoint(fromSection, toSection, config.nodeRadius);
+        
         g.append("line")
-          .attr("x1", fromSection.x)
-          .attr("y1", fromSection.y)
-          .attr("x2", toSection.x)
-          .attr("y2", toSection.y)
+          .attr("x1", points.fromX)
+          .attr("y1", points.fromY)
+          .attr("x2", points.toX)
+          .attr("y2", points.toY)
           .attr("stroke", "#bdc3c7")
           .attr("stroke-width", 2)
           .attr("stroke-dasharray", "5,5")
@@ -258,7 +278,7 @@ Deep dive, question assumptions<br/>
 
     // Section circles with gradients
     nodes.append("circle")
-      .attr("r", 35)
+      .attr("r", config.nodeRadius)
       .attr("fill", d => `url(#gradient-${d.id})`)
       .attr("stroke", "#fff")
       .attr("stroke-width", 3)
@@ -266,7 +286,7 @@ Deep dive, question assumptions<br/>
       .on("mouseover", function(event, d) {
         d3.select(this)
           .transition().duration(200)
-          .attr("r", 40);
+          .attr("r", config.nodeRadius + 5);
         
         tooltip.style("opacity", 1)
           .style("left", (event.pageX + 10) + "px")
@@ -281,64 +301,86 @@ Deep dive, question assumptions<br/>
       .on("mouseout", function(event, d) {
         d3.select(this)
           .transition().duration(200)
-          .attr("r", 35);
+          .attr("r", config.nodeRadius);
         
         tooltip.style("opacity", 0);
       });
+
+    // Section numbers (like in the image)
+    nodes.append("circle")
+      .attr("cx", -22)
+      .attr("cy", -22)
+      .attr("r", 12)
+      .attr("fill", "#2c3e50")
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 2);
+
+    nodes.append("text")
+      .attr("x", -22)
+      .attr("y", -18)
+      .attr("text-anchor", "middle")
+      .attr("fill", "white")
+      .attr("font-size", "12px")
+      .attr("font-weight", "bold")
+      .text((d, i) => i + 1)
+      .style("pointer-events", "none");
 
     // Section titles
     nodes.append("text")
       .attr("text-anchor", "middle")
       .attr("dy", "0.35em")
       .attr("fill", "white")
-      .attr("font-size", "12px")
+      .attr("font-size", "11px")
       .attr("font-weight", "bold")
       .attr("text-shadow", "0 1px 2px rgba(0,0,0,0.5)")
       .text(d => d.title)
       .style("pointer-events", "none");
 
-    // Priority indicators
-    nodes.append("circle")
-      .attr("cx", 25)
-      .attr("cy", -25)
-      .attr("r", 8)
-      .attr("fill", d => {
+    // Reading recommendation indicators (thumbs up/down like in image)
+    nodes.append("text")
+      .attr("x", 22)
+      .attr("y", -18)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "16px")
+      .text(d => {
+        // Based on image: thumbs up for important sections, thumbs down for skip/optional
         switch(d.priority) {
-          case "CRITICAL": return "#e74c3c";
-          case "HIGH": return "#f39c12";
-          case "MEDIUM": return "#f1c40f";
-          default: return "#95a5a6";
+          case "CRITICAL": return "👍";
+          case "HIGH": return "👍";
+          case "MEDIUM": return "👎";
+          default: return "👎";
         }
       })
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 2);
+      .style("pointer-events", "none");
 
-    // Legend
+    // Legend - updated to match image style
     const legend = svg.append("g")
       .attr("transform", "translate(20, 20)");
 
     const legendData = [
-      { label: "Critical", color: "#e74c3c" },
-      { label: "High", color: "#f39c12" },
-      { label: "Medium", color: "#f1c40f" },
-      { label: "Low", color: "#95a5a6" }
+      { label: "👍 Read thoughtfully", emoji: "👍" },
+      { label: "👎 Feel free to skip", emoji: "👎" },
+      { label: "🔢 Reading sequence", emoji: "1" }
     ];
 
     const legendItems = legend.selectAll(".legend-item")
       .data(legendData)
       .enter().append("g")
       .attr("class", "legend-item")
-      .attr("transform", (d, i) => `translate(0, ${i * 20})`);
-
-    legendItems.append("circle")
-      .attr("r", 6)
-      .attr("fill", d => d.color);
+      .attr("transform", (d, i) => `translate(0, ${i * 22})`);
 
     legendItems.append("text")
-      .attr("x", 12)
+      .attr("x", 0)
+      .attr("y", 4)
+      .attr("font-size", "14px")
+      .text(d => d.emoji);
+
+    legendItems.append("text")
+      .attr("x", 20)
       .attr("y", 4)
       .attr("font-size", "11px")
       .attr("fill", "#333")
+      .attr("font-weight", "500")
       .text(d => d.label);
 
     // Title
