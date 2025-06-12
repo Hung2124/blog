@@ -511,7 +511,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Documentation**: Check `DEPLOYMENT_GUIDE.md` for detailed setup
 - **Issues**: [GitHub Issues](../../issues) for bug reports
 - **Discussions**: [GitHub Discussions](../../discussions) for questions
-- **Email**: contact@your-domain.com
+- **Email**: thank0617@gmai.com
 
 ---
 
@@ -520,7 +520,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 Using AI Blog Pro? We'd love to feature your blog! Submit a PR adding your site to this section.
 
 ### Live Examples
-- **AI Blog Pro Demo**: [demo-link] - Example implementation
+- **AI Blog Pro Demo**: [[demo-link]](https://hung2124.github.io/blog/) - Example implementation
 - **Your Blog Here**: Submit your blog URL!
 
 ---
