@@ -12,14 +12,182 @@ Welcome to Week 2 of the AIO2025 journey! This week, we'll explore three fundame
 
 > 💡 **Learning Objectives:** Master Python data structures, design professional databases, and manage source code effectively with Git.
 
+<div class="table-of-contents">
+  <div class="toc-header">📑 Table of Contents</div>
+  <div class="toc-content">
+    <ul>
+      <li><a href="#python-lists">🐍 1. Python Lists - Dynamic Data Powerhouse</a>
+        <ul>
+          <li><a href="#core-characteristics">🎯 1.1. Core Characteristics of Lists</a></li>
+          <li><a href="#creating-accessing">💻 1.2. Creating and Accessing Lists</a></li>
+          <li><a href="#list-methods">🛠️ 1.3. List Methods</a></li>
+          <li><a href="#built-in-functions">🔧 1.4. Built-in Functions for Lists</a></li>
+          <li><a href="#list-comprehension">🚀 1.5. List Comprehension</a></li>
+          <li><a href="#2d-lists">📊 1.6. 2D Lists (Matrices)</a></li>
+        </ul>
+      </li>
+      <li><a href="#database-sql">🗄️ 2. Database - SQL (Part 2): Professional Database Design</a>
+        <ul>
+          <li><a href="#erd">🎯 2.1. Entity Relationship Diagram (ERD)</a></li>
+          <li><a href="#normalization">🏗️ 2.2. Database Normalization</a></li>
+        </ul>
+      </li>
+      <li><a href="#advanced-data-structures">🔧 3. Advanced Data Structures</a>
+        <ul>
+          <li><a href="#tuples">🎯 3.1. Tuples - Immutable Sequences</a></li>
+          <li><a href="#sets">🎯 3.2. Sets - Unique Collections</a></li>
+          <li><a href="#dictionaries">🎯 3.3. Dictionaries - Key-Value Powerhouse</a></li>
+        </ul>
+      </li>
+      <li><a href="#git-github">🌿 4. Git & GitHub for Version Control</a>
+        <ul>
+          <li><a href="#git-fundamentals">🎯 4.1. Git Fundamentals</a></li>
+          <li><a href="#git-branching">🌿 4.2. Git Branching & Merging</a></li>
+          <li><a href="#popular-branching-models">🔀 4.4. Popular Branching Models</a></li>
+          <li><a href="#github-workflow">🤝 4.5. GitHub Fork & Pull Request Workflow</a></li>
+        </ul>
+      </li>
+      <li><a href="#practical-exercises">🧠 5. Practical Exercises</a>
+        <ul>
+          <li><a href="#sliding-window">🔍 5.1. Sliding Window Technique</a></li>
+          <li><a href="#two-pointers">📊 5.2. Two Pointers Technique</a></li>
+          <li><a href="#dynamic-programming">📝 5.3. Dynamic Programming</a></li>
+          <li><a href="#levenshtein-distance">🧮 5.4. Levenshtein Distance</a></li>
+        </ul>
+      </li>
+      <li><a href="#assessment-matrix">🎯 6. Week 2 Learning Assessment Matrix</a></li>
+      <li><a href="#conclusion">🎉 Conclusion</a></li>
+    </ul>
+  </div>
+</div>
 
+<style>
+.table-of-contents {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin: 2rem 0;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.toc-header {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.toc-header:after {
+  content: "▼";
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.toc-header.collapsed:after {
+  transform: rotate(-90deg);
+}
+
+.toc-content {
+  padding: 0.5rem 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.toc-content.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.table-of-contents ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.table-of-contents ul li {
+  margin: 0.4rem 0;
+}
+
+.table-of-contents a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 1.6;
+}
+
+.table-of-contents a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .table-of-contents {
+    margin: 1.5rem 0;
+  }
+  
+  .toc-header {
+    padding: 0.6rem 1rem;
+  }
+  
+  .toc-content {
+    padding: 0.5rem 0.8rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocHeader = document.querySelector('.toc-header');
+  const tocContent = document.querySelector('.toc-content');
+  
+  // Add click handler to toggle TOC
+  tocHeader.addEventListener('click', function() {
+    tocHeader.classList.toggle('collapsed');
+    tocContent.classList.toggle('collapsed');
+  });
+  
+  // Make TOC links work correctly with scroll behavior
+  document.querySelectorAll('.table-of-contents a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100, // Add some offset for header
+          behavior: 'smooth'
+        });
+        
+        // Update URL without page reload
+        history.pushState(null, null, `#${targetId}`);
+      }
+    });
+  });
+});
+</script>
 
 
 ## 🐍 1. Python Lists - Dynamic Data Powerhouse
+<span id="python-lists"></span>
 
 Lists are fundamental data structures in Python used to store ordered collections of items. The key characteristic of Lists is their **mutability** - contents can be changed after creation.
 
 ### 🎯 1.1. Core Characteristics of Lists
+<span id="core-characteristics"></span>
 
 - **Ordered**: The items in a list have a defined order, and that order will not change. If you add new items to a list, the new items will be placed at the end of the list.
 - **Mutable**: You can change, add, and remove items in a list after it has been created.
@@ -294,6 +462,7 @@ Lists are fundamental data structures in Python used to store ordered collection
 > 💡 **Interactive:** Hover over elements to see exact values!
 
 ### 💻 1.2. Creating and Accessing Lists
+<span id="creating-accessing"></span>
 
 **Creating Lists:**
 Lists are created by placing comma-separated values inside square brackets `[]`.
@@ -345,6 +514,7 @@ print(data[::2]) # Output: [4, 6, 8]
 ```
 
 ### 🛠️ 1.3. List Methods - Powerful Manipulation Tools
+<span id="list-methods"></span>
 
 Here's a comprehensive table of the most common list methods:
 
@@ -387,6 +557,7 @@ print(data)          # [1, 2, 4, 5, 9, 10]
 ```
 
 ### 🔧 1.4. Built-in Functions for Lists
+<span id="built-in-functions"></span>
 
 | Function | Description | Example | Use Case |
 |----------|-------------|---------|----------|
@@ -419,6 +590,7 @@ for name, age in zip(names, ages):
 ```
 
 ### 🚀 1.5. List Comprehension - Pythonic Power
+<span id="list-comprehension"></span>
 
 List comprehension is a concise and Pythonic way to create new lists from existing iterables.
 
@@ -449,6 +621,7 @@ matrix = [[i+j for j in range(3)] for i in range(3)]
 > 💡 **Tip:** List comprehensions are typically faster than traditional `for` loops and result in more concise code!
 
 ### 📊 1.6. 2D Lists (Matrices) - Two-Dimensional Data Structure
+<span id="2d-lists"></span>
 
 2D Lists are lists where each element is another list. This structure is used to represent grids, tables, or matrices in mathematics and data science.
 
@@ -651,10 +824,12 @@ for r in range(num_rows):
 ---
 
 ## 🗄️ 2. Database - SQL (Part 2): Professional Database Design
+<span id="database-sql"></span>
 
 This section focuses on the design and structure of relational databases, with emphasis on **Entity Relationship Diagrams (ERD)** and **Database Normalization** - two core skills for every Database Developer.
 
 ### 🎯 2.1. Entity Relationship Diagram (ERD) - Visual Language
+<span id="erd"></span>
 
 ERD is a visual model that represents the structure of a database. It illustrates entities, attributes, and relationships between them.
 
@@ -1329,6 +1504,7 @@ Cardinality defines the number of entities that can participate in a relationshi
 > ⚠️ **Note:** M:N relationships are typically resolved by creating a junction table (associative entity).
 
 ### 🏗️ 2.2. Database Normalization - Structural Excellence
+<span id="normalization"></span>
 
 Normalization is the process of organizing columns and tables in a relational database to minimize data redundancy. It involves dividing large tables into smaller, well-structured tables and defining relationships between them.
 
@@ -1750,10 +1926,12 @@ Normalization is the process of organizing columns and tables in a relational da
 ---
 
 ## 🔧 3. Advanced Data Structures
+<span id="advanced-data-structures"></span>
 
 This section delves into other built-in Python data structures: **Tuples**, **Sets**, and **Dictionaries**.
 
 ### 🎯 3.1. Tuples - Immutable Sequences
+<span id="tuples"></span>
 
 Tuples are ordered collections of items, similar to lists. The key difference is that tuples are **immutable**, meaning they cannot be changed after creation.
 
@@ -1795,6 +1973,7 @@ print(coordinates.index(20))  # Output: 1
 ```
 
 ### 🎯 3.2. Sets - Unique Collections
+<span id="sets"></span>
 
 Sets are **unordered** collections of **unique** items. They are mutable and perfect for mathematical set operations.
 
@@ -1845,6 +2024,7 @@ print("cat" in animals)  # Output: True
 ```
 
 ### 🎯 3.3. Dictionaries - Key-Value Powerhouse
+<span id="dictionaries"></span>
 
 Dictionaries are **ordered** (as of Python 3.7+) collections of **key-value pairs**. They are mutable and provide fast lookups.
 
@@ -2096,14 +2276,16 @@ Dictionaries are **ordered** (as of Python 3.7+) collections of **key-value pair
  ---
 
  ## 🌿 4. Git & GitHub for Version Control
+<span id="git-github"></span>
 
- Version Control Systems (VCS) track and manage changes to files over time. Git is a powerful, distributed VCS. GitHub is a web-based hosting service for Git repositories.
+Version Control Systems (VCS) track and manage changes to files over time. Git is a powerful, distributed VCS. GitHub is a web-based hosting service for Git repositories.
 
  ### 🎯 4.1. Git Fundamentals
+<span id="git-fundamentals"></span>
 
- **Core Concepts:**
+**Core Concepts:**
 
- - **VCS (Version Control System):** A system that records changes to a file or set of files over time so that you can recall specific versions later.
+- **VCS (Version Control System):** A system that records changes to a file or set of files over time so that you can recall specific versions later.
  - **Distributed VCS (DVCS):** Systems (like Git) where clients don't just check out the latest snapshot of the files; they fully mirror the repository.
  - **Repository (Repo):** A directory where your project's files and their revision history are stored.
  - **Commit:** A snapshot of your files at a specific point in time.
@@ -2446,8 +2628,9 @@ Dictionaries are **ordered** (as of Python 3.7+) collections of **key-value pair
  ```
 
  ### 🌿 4.2. Git Branching & Merging
+<span id="git-branching"></span>
 
- Branching is a core feature of Git that allows for parallel development.
+Branching is a core feature of Git that allows for parallel development.
 
 ### 🌿 Interactive Git Branching & Merging
 
@@ -2902,6 +3085,7 @@ git branch -d feature-x
 If the same lines are changed in both branches, a merge conflict occurs. Git will mark the conflicted areas in the file. You must manually edit the file to resolve the conflict, then `git add` and `git commit` to finalize the merge.
 
 ### 🔀 4.4. Popular Branching Models
+<span id="popular-branching-models"></span>
 
 | Model | Description | Best For |
 |-------|-------------|----------|
@@ -2910,6 +3094,7 @@ If the same lines are changed in both branches, a merge conflict occurs. Git wil
 | **Trunk-Based Development** | Small, frequent commits to single `main` branch with feature flags | High-frequency releases, advanced teams |
 
 ### 🤝 4.5. Collaboration with GitHub Fork & Pull Request Workflow
+<span id="github-workflow"></span>
 
 **Key Concepts:**
 
@@ -2945,10 +3130,12 @@ git push origin feature/new-login
 ---
 
 ## 🧠 5. Practical Exercises
+<span id="practical-exercises"></span>
 
 This section summarizes the problems and solution approaches from the TA session.
 
 ### 🔍 5.1. Sliding Window Technique
+<span id="sliding-window"></span>
 
 **Problem:** Given a list of numbers and a window size k, find the maximum value in the sliding window as it moves from left to right.
 
@@ -2972,6 +3159,7 @@ print(max_kernel([3, 4, 5, 1, -44], 3))  # Output: [5, 5, 5]
 ```
 
 ### 📊 5.2. Two Pointers Technique
+<span id="two-pointers"></span>
 
 **Problem:** Count the occurrences of each character in a given string.
 
@@ -2994,6 +3182,7 @@ print(count_characters("Baby"))  # Output: {'b': 2, 'a': 1, 'y': 1}
 ```
 
 ### 📝 5.3. Dynamic Programming
+<span id="dynamic-programming"></span>
 
 **Problem:** Count the occurrences of each word in a text file.
 
@@ -3021,6 +3210,7 @@ def count_words_in_file(filepath):
 ```
 
 ### 🧮 5.4. Levenshtein Distance
+<span id="levenshtein-distance"></span>
 
 **Problem:** Calculate the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one word into the other.
 
@@ -3398,6 +3588,7 @@ def count_words_in_file(filepath):
 ---
 
 ## 🎯 6. Week 2 Learning Assessment Matrix
+<span id="assessment-matrix"></span>
 
 ### 📊 Interactive Self-Assessment Tool
 
@@ -3548,6 +3739,7 @@ def count_words_in_file(filepath):
 ---
 
 ## 🎉 Conclusion
+<span id="conclusion"></span>
 
 Week 2 of AIO2025 has covered fundamental building blocks of programming and data management:
 

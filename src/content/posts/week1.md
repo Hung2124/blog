@@ -11,11 +11,186 @@ draft: false
 
 This document provides a consolidated summary of the key topics covered in the first week of the AIO 2025 program. The content is organized based on the provided PDF materials, covering essential skills, Python fundamentals, database basics, coding methodologies, and practical exercises.
 
+<div class="toc-container" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin: 30px 0; border: 1px solid #e9ecef; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+  <div class="toc-header" style="cursor: pointer; user-select: none; font-weight: bold; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <div style="font-size: 1.2em; color: #3273dc;">📚 Table of Contents</div>
+    <div class="toc-toggle" style="color: #3273dc; transition: transform 0.3s;">[Hide]</div>
+  </div>
+  
+  <div class="toc-content" style="display: block; transition: height 0.3s ease-out; overflow: hidden;">
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li style="margin-bottom: 8px;">
+        <a href="#skills-for-aio2025" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🎯</span> 1. Skills for AIO 2025
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#find-read-papers" style="color: #4a4a4a; text-decoration: none;">1.1 How to Find and Read Scientific Papers</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#research-plan" style="color: #4a4a4a; text-decoration: none;">1.2 Making a Research Plan & Documenting Results</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#coding-environment" style="color: #4a4a4a; text-decoration: none;">1.3 Coding Environment & AI Assistants</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#basic-python" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🐍</span> 2. Basic Python
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#variables-data-types" style="color: #4a4a4a; text-decoration: none;">2.1 Variables and Data Types</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#branching" style="color: #4a4a4a; text-decoration: none;">2.2 Branching (Conditional Statements)</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#functions" style="color: #4a4a4a; text-decoration: none;">2.3 Functions</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#chatbot" style="color: #4a4a4a; text-decoration: none;">2.4 Application: Rule-Based Chatbot</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#database-sql" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🗃️</span> 3. Database & SQL (Part 1)
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#database" style="color: #4a4a4a; text-decoration: none;">3.1 What is a Database?</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#sql" style="color: #4a4a4a; text-decoration: none;">3.2 Introduction to SQL</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#loops-in-python" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🔄</span> 4. Loops in Python
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#for-loops" style="color: #4a4a4a; text-decoration: none;">4.1 for Loops</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#while-loops" style="color: #4a4a4a; text-decoration: none;">4.2 while Loops</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#control-statements" style="color: #4a4a4a; text-decoration: none;">4.3 Loop Control Statements</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#coding-methodology" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🏗️</span> 5. Coding Methodology
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#clean-code" style="color: #4a4a4a; text-decoration: none;">5.1 Clean Code & PEP-8</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#pythonic-code" style="color: #4a4a4a; text-decoration: none;">5.2 Pythonic Code</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#coding-principles" style="color: #4a4a4a; text-decoration: none;">5.3 General Coding Principles</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#practical-exercises" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🧪</span> 6. Practical Exercises
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#f1-score" style="color: #4a4a4a; text-decoration: none;">6.1 Calculate F1-Score</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#activation-functions" style="color: #4a4a4a; text-decoration: none;">6.2 Calculate Activation Functions</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#loss-functions" style="color: #4a4a4a; text-decoration: none;">6.3 Calculate Loss Functions</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#trigonometric" style="color: #4a4a4a; text-decoration: none;">6.4 Estimate Trigonometric Functions</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#environment-setup" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🛠️</span> 7. Development Environment Setup
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#python-environment" style="color: #4a4a4a; text-decoration: none;">7.1 Python Environment Management</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#ai-libraries" style="color: #4a4a4a; text-decoration: none;">7.2 Essential AI Libraries</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#learning-progress" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">📊</span> 8. Learning Progress Tracker
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#skills-checklist" style="color: #4a4a4a; text-decoration: none;">8.1 Week 1 Skills Checklist</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#self-assessment" style="color: #4a4a4a; text-decoration: none;">8.2 Self-Assessment Matrix</a>
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#week1-summary" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🎯</span> Week 1 Summary
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tocHeader = document.querySelector('.toc-header');
+      const tocContent = document.querySelector('.toc-content');
+      const tocToggle = document.querySelector('.toc-toggle');
+      
+      tocHeader.addEventListener('click', function() {
+        const isVisible = tocContent.style.display !== 'none';
+        tocContent.style.display = isVisible ? 'none' : 'block';
+        tocToggle.textContent = isVisible ? '[Show]' : '[Hide]';
+        tocToggle.style.transform = isVisible ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('.toc-content a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            e.preventDefault();
+            window.scrollTo({
+              top: targetElement.offsetTop - 20,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</div>
+
 ## 🎯 1. Skills for AIO 2025
+<span id="skills-for-aio2025"></span>
 
 This section outlines the essential skills and tools you'll need to succeed in your AI research and development journey.
 
 ### 1.1 How to Find and Read Scientific Papers 📖
+<span id="find-read-papers"></span>
 
 Effectively finding and understanding research is a cornerstone of AI.
 
@@ -551,11 +726,13 @@ Effectively finding and understanding research is a cornerstone of AI.
 </script>
 
 ### 1.2 Making a Research Plan & Documenting Results 📋
+<span id="research-plan"></span>
 
 - **Research Plan:** Use AI tools like Gemini to help structure your research. Define your objectives, identify key questions, outline your methodology, and set a timeline
 - **Documentation:** Use Overleaf (LaTeX) for professional-quality scientific documents. LaTeX is the standard for academic papers, giving you precise control over formatting, especially for mathematical equations
 
 ### 1.3 Coding Environment & AI Assistants 💻
+<span id="coding-environment"></span>
 
 #### Local Environment:
 - **Jupyter Notebook** or **Anaconda** to set up a powerful local development environment
@@ -572,10 +749,12 @@ Leverage tools like **Gemini in Colab** and **ChatGPT** to accelerate your workf
 - Summarizing articles or concepts
 
 ## 🐍 2. Basic Python
+<span id="basic-python"></span>
 
 This section covers the foundational elements of the Python programming language, including data types, branching, and a simple rule-based chatbot application.
 
 ### 2.1 Variables and Data Types
+<span id="variables-data-types"></span>
 
 In Python, a variable is a container for storing data values. The main data types are:
 
@@ -604,6 +783,7 @@ print(type(age))      # <class 'int'>
 ```
 
 ### 2.2 Branching (Conditional Statements) 🌟
+<span id="branching"></span>
 
 Conditional statements allow your program to execute different blocks of code based on whether a condition is True or False.
 
@@ -627,6 +807,7 @@ else:
 ```
 
 ### 2.3 Functions 🔧
+<span id="functions"></span>
 
 Functions are reusable blocks of code that perform a specific task.
 
@@ -645,6 +826,7 @@ print(message) # Output: Hello, AIO Student!
 ```
 
 ### 2.4 Application: Rule-Based Chatbot 🤖
+<span id="chatbot"></span>
 
 A simple chatbot can be created using a series of if-elif-else statements to respond to specific user inputs.
 
@@ -671,10 +853,12 @@ else:
 <div style="clear: both;"></div>
 
 ## 🗃️ 3. Database & SQL (Part 1)
+<span id="database-sql"></span>
 
 Databases are organized collections of data, and SQL (Structured Query Language) is the standard language used to interact with them.
 
 ### 3.1 What is a Database? 💾
+<span id="database"></span>
 
 A database is designed for efficient storage, retrieval, and management of data. Instead of storing all information in one massive file (like an Excel sheet), a relational database breaks data into multiple related tables to reduce redundancy and improve integrity.
 
@@ -878,6 +1062,7 @@ A database is designed for efficient storage, retrieval, and management of data.
 </script>
 
 ### 3.2 Introduction to SQL 📊
+<span id="sql"></span>
 
 SQL is used to perform actions like querying data, inserting new records, updating records, and deleting records.
 
@@ -1014,10 +1199,12 @@ SELECT * FROM customers ORDER BY points DESC LIMIT 3;
 ```
 
 ## 🔄 4. Loops in Python
+<span id="loops-in-python"></span>
 
 Loops are used to execute a block of code repeatedly.
 
 ### 4.1 for Loops 🔁
+<span id="for-loops"></span>
 
 A for loop is used for iterating over a sequence (like a list, tuple, dictionary, set, or string).
 
@@ -1035,6 +1222,7 @@ for i in range(5):
 ```
 
 ### 4.2 while Loops ⏳
+<span id="while-loops"></span>
 
 A while loop executes a set of statements as long as its condition is true.
 
@@ -1047,6 +1235,7 @@ while count < 5:
 ```
 
 ### 4.3 Loop Control Statements 🎛️
+<span id="control-statements"></span>
 
 - **`break`:** Exits the loop entirely, regardless of the condition
 - **`continue`:** Skips the rest of the current iteration and proceeds to the next one
@@ -1070,10 +1259,12 @@ for i in range(5):
 ```
 
 ## 🏗️ 5. Coding Methodology
+<span id="coding-methodology"></span>
 
 Writing high-quality code is crucial for collaboration, maintenance, and scalability. This involves following established conventions and principles.
 
 ### 5.1 Clean Code & PEP-8 ✨
+<span id="clean-code"></span>
 
 #### Clean Code:
 Code that is easy to read, understand, and maintain by others (and your future self). It should be readable, testable, maintainable, and extensible.
@@ -1091,6 +1282,7 @@ The official style guide for Python code. Adhering to it ensures consistency and
 - **Comments & Docstrings:** Use comments to explain non-obvious code. Use docstrings to explain what a function, module, or class does
 
 ### 5.2 Pythonic Code 🐍
+<span id="pythonic-code"></span>
 
 "Pythonic" means writing code that leverages Python's unique features to be more readable, concise, and efficient.
 
@@ -1117,6 +1309,7 @@ with open('file.txt', 'r') as f:
 ```
 
 ### 5.3 General Coding Principles 📏
+<span id="coding-principles"></span>
 
 <div style="background: linear-gradient(145deg, #2c3e50, #34495e); padding: 40px; border-radius: 20px; margin: 30px 0; box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
 
@@ -1178,10 +1371,12 @@ with open('file.txt', 'r') as f:
 - **SOLID Principles:** Design principles for writing maintainable and scalable code
 
 ## 🧪 6. Practical Exercises (Activation Functions & Metrics)
+<span id="practical-exercises"></span>
 
 This section summarizes the practical exercises involving the implementation of common functions used in machine learning.
 
 ### 6.1 Exercise 1: Calculate F1-Score 🎯
+<span id="f1-score"></span>
 
 The F1-Score is a metric used to evaluate a classification model's accuracy. It is the harmonic mean of Precision and Recall.
 
@@ -1200,6 +1395,7 @@ Where:
 - FN = False Negatives
 
 ### 6.2 Exercise 2: Calculate Activation Functions ⚡
+<span id="activation-functions"></span>
 
 Activation functions introduce non-linearity into a neural network, allowing it to learn more complex patterns.
 
@@ -1448,6 +1644,7 @@ A variant of ReLU that allows negative values, which can sometimes help learning
 </script>
 
 ### 6.3 Exercise 3: Calculate Loss Functions 📉
+<span id="loss-functions"></span>
 
 Loss functions measure how well a model's prediction matches the actual target value. The goal of training is to minimize this loss.
 
@@ -1462,6 +1659,7 @@ The average of the squared differences. It penalizes larger errors more heavily 
 $$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 ### 6.4 Exercise 4: Estimate Trigonometric Functions 📐
+<span id="trigonometric"></span>
 
 Trigonometric functions like sin(x) and cos(x) can be approximated using their Taylor series expansions. This is a great exercise in using loops and factorials.
 
@@ -1824,8 +2022,10 @@ This requires implementing a factorial function and then summing the terms of th
 The Taylor series expansion is a powerful mathematical tool that allows us to approximate complex functions using polynomial terms. As shown in the progression above, adding more terms progressively improves the accuracy of the approximation. This concept is fundamental in numerical computing and machine learning algorithms where exact calculations may be computationally expensive.
 
 ## 🛠️ 7. Development Environment Setup
+<span id="environment-setup"></span>
 
 ### 7.1 Python Environment Management
+<span id="python-environment"></span>
 
 <div style="background: linear-gradient(135deg, #2c3e50, #3498db); padding: 35px; border-radius: 20px; margin: 25px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
 
@@ -1910,6 +2110,7 @@ pip install numpy pandas matplotlib scikit-learn jupyter
 ```
 
 ### 7.2 Essential AI Libraries 
+<span id="ai-libraries"></span>
 
 | Library | Purpose | Installation |
 |---------|---------|-------------|
@@ -1931,8 +2132,10 @@ Understanding this stack progression helps you learn systematically - master the
 <div style="clear: both;"></div>
 
 ## 📊 8. Learning Progress Tracker
+<span id="learning-progress"></span>
 
 ### 8.1 Week 1 Skills Checklist
+<span id="skills-checklist"></span>
 
 <div style="background: linear-gradient(135deg, #8e44ad, #3498db); padding: 35px; border-radius: 20px; margin: 25px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
 
@@ -2044,6 +2247,7 @@ Understanding this stack progression helps you learn systematically - master the
 </div>
 
 ### 8.2 Self-Assessment Matrix
+<span id="self-assessment"></span>
 
 | Skill Area | Beginner (1-2) | Intermediate (3-4) | Advanced (5) | My Level |
 |------------|------------------|-------------------|--------------|----------|
@@ -2056,6 +2260,7 @@ Understanding this stack progression helps you learn systematically - master the
 ---
 
 ## 🎯 Week 1 Summary
+<span id="week1-summary"></span>
 
 Week 1 of AIO 2025 has provided a solid foundation in:
 
