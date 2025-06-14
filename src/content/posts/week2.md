@@ -156,8 +156,6 @@ Welcome to Week 2 of the AIO2025 journey! This week, we'll explore three fundame
     });
   </script>
 </div>
-</script>
-
 
 ## 🐍 1. Python Lists - Dynamic Data Powerhouse
 <span id="python-lists"></span>
