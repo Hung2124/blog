@@ -12,172 +12,150 @@ Welcome to Week 2 of the AIO2025 journey! This week, we'll explore three fundame
 
 > 💡 **Learning Objectives:** Master Python data structures, design professional databases, and manage source code effectively with Git.
 
-<div class="table-of-contents">
-  <div class="toc-header">📑 Table of Contents</div>
-  <div class="toc-content">
-    <ul>
-      <li><a href="#python-lists">🐍 1. Python Lists - Dynamic Data Powerhouse</a>
-        <ul>
-          <li><a href="#core-characteristics">🎯 1.1. Core Characteristics of Lists</a></li>
-          <li><a href="#creating-accessing">💻 1.2. Creating and Accessing Lists</a></li>
-          <li><a href="#list-methods">🛠️ 1.3. List Methods</a></li>
-          <li><a href="#built-in-functions">🔧 1.4. Built-in Functions for Lists</a></li>
-          <li><a href="#list-comprehension">🚀 1.5. List Comprehension</a></li>
-          <li><a href="#2d-lists">📊 1.6. 2D Lists (Matrices)</a></li>
+<div class="toc-container" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin: 30px 0; border: 1px solid #e9ecef; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+  <div class="toc-header" style="cursor: pointer; user-select: none; font-weight: bold; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <div style="font-size: 1.2em; color: #3273dc;">📚 Table of Contents</div>
+    <div class="toc-toggle" style="color: #3273dc; transition: transform 0.3s;">[Hide]</div>
+  </div>
+  
+  <div class="toc-content" style="display: block; transition: height 0.3s ease-out; overflow: hidden;">
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li style="margin-bottom: 8px;">
+        <a href="#python-lists" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🐍</span> 1. Python Lists - Dynamic Data Powerhouse
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#core-characteristics" style="color: #4a4a4a; text-decoration: none;">1.1. Core Characteristics of Lists</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#creating-accessing" style="color: #4a4a4a; text-decoration: none;">1.2. Creating and Accessing Lists</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#list-methods" style="color: #4a4a4a; text-decoration: none;">1.3. List Methods</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#built-in-functions" style="color: #4a4a4a; text-decoration: none;">1.4. Built-in Functions for Lists</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#list-comprehension" style="color: #4a4a4a; text-decoration: none;">1.5. List Comprehension</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#2d-lists" style="color: #4a4a4a; text-decoration: none;">1.6. 2D Lists (Matrices)</a>
+          </li>
         </ul>
       </li>
-      <li><a href="#database-sql">🗄️ 2. Database - SQL (Part 2): Professional Database Design</a>
-        <ul>
-          <li><a href="#erd">🎯 2.1. Entity Relationship Diagram (ERD)</a></li>
-          <li><a href="#normalization">🏗️ 2.2. Database Normalization</a></li>
+      <li style="margin-bottom: 8px;">
+        <a href="#database-sql" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🗄️</span> 2. Database - SQL (Part 2): Professional Database Design
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#erd" style="color: #4a4a4a; text-decoration: none;">2.1. Entity Relationship Diagram (ERD)</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#normalization" style="color: #4a4a4a; text-decoration: none;">2.2. Database Normalization</a>
+          </li>
         </ul>
       </li>
-      <li><a href="#advanced-data-structures">🔧 3. Advanced Data Structures</a>
-        <ul>
-          <li><a href="#tuples">🎯 3.1. Tuples - Immutable Sequences</a></li>
-          <li><a href="#sets">🎯 3.2. Sets - Unique Collections</a></li>
-          <li><a href="#dictionaries">🎯 3.3. Dictionaries - Key-Value Powerhouse</a></li>
+      <li style="margin-bottom: 8px;">
+        <a href="#advanced-data-structures" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🔧</span> 3. Advanced Data Structures
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#tuples" style="color: #4a4a4a; text-decoration: none;">3.1. Tuples - Immutable Sequences</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#sets" style="color: #4a4a4a; text-decoration: none;">3.2. Sets - Unique Collections</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#dictionaries" style="color: #4a4a4a; text-decoration: none;">3.3. Dictionaries - Key-Value Powerhouse</a>
+          </li>
         </ul>
       </li>
-      <li><a href="#git-github">🌿 4. Git & GitHub for Version Control</a>
-        <ul>
-          <li><a href="#git-fundamentals">🎯 4.1. Git Fundamentals</a></li>
-          <li><a href="#git-branching">🌿 4.2. Git Branching & Merging</a></li>
-          <li><a href="#popular-branching-models">🔀 4.4. Popular Branching Models</a></li>
-          <li><a href="#github-workflow">🤝 4.5. GitHub Fork & Pull Request Workflow</a></li>
+      <li style="margin-bottom: 8px;">
+        <a href="#git-github" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🌿</span> 4. Git & GitHub for Version Control
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#git-fundamentals" style="color: #4a4a4a; text-decoration: none;">4.1. Git Fundamentals</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#git-branching" style="color: #4a4a4a; text-decoration: none;">4.2. Git Branching & Merging</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#popular-branching-models" style="color: #4a4a4a; text-decoration: none;">4.4. Popular Branching Models</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#github-workflow" style="color: #4a4a4a; text-decoration: none;">4.5. GitHub Fork & Pull Request Workflow</a>
+          </li>
         </ul>
       </li>
-      <li><a href="#practical-exercises">🧠 5. Practical Exercises</a>
-        <ul>
-          <li><a href="#sliding-window">🔍 5.1. Sliding Window Technique</a></li>
-          <li><a href="#two-pointers">📊 5.2. Two Pointers Technique</a></li>
-          <li><a href="#dynamic-programming">📝 5.3. Dynamic Programming</a></li>
-          <li><a href="#levenshtein-distance">🧮 5.4. Levenshtein Distance</a></li>
+      <li style="margin-bottom: 8px;">
+        <a href="#practical-exercises" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🧠</span> 5. Practical Exercises
+        </a>
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">
+          <li style="margin-bottom: 5px;">
+            <a href="#sliding-window" style="color: #4a4a4a; text-decoration: none;">5.1. Sliding Window Technique</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#two-pointers" style="color: #4a4a4a; text-decoration: none;">5.2. Two Pointers Technique</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#dynamic-programming" style="color: #4a4a4a; text-decoration: none;">5.3. Dynamic Programming</a>
+          </li>
+          <li style="margin-bottom: 5px;">
+            <a href="#levenshtein-distance" style="color: #4a4a4a; text-decoration: none;">5.4. Levenshtein Distance</a>
+          </li>
         </ul>
       </li>
-      <li><a href="#assessment-matrix">🎯 6. Week 2 Learning Assessment Matrix</a></li>
-      <li><a href="#conclusion">🎉 Conclusion</a></li>
+      <li style="margin-bottom: 8px;">
+        <a href="#assessment-matrix" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🎯</span> 6. Week 2 Learning Assessment Matrix
+        </a>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <a href="#conclusion" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">🎉</span> Conclusion
+        </a>
+      </li>
     </ul>
   </div>
-</div>
 
-<style>
-.table-of-contents {
-  background-color: #f8fafc;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  margin: 2rem 0;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.toc-header {
-  background-color: #3b82f6;
-  color: white;
-  padding: 0.8rem 1.2rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-}
-
-.toc-header:after {
-  content: "▼";
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
-}
-
-.toc-header.collapsed:after {
-  transform: rotate(-90deg);
-}
-
-.toc-content {
-  padding: 0.5rem 1rem;
-  max-height: 500px;
-  overflow-y: auto;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.toc-content.collapsed {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  overflow: hidden;
-}
-
-.table-of-contents ul {
-  padding-left: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.table-of-contents ul li {
-  margin: 0.4rem 0;
-}
-
-.table-of-contents a {
-  color: #2563eb;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  line-height: 1.6;
-}
-
-.table-of-contents a:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .table-of-contents {
-    margin: 1.5rem 0;
-  }
-  
-  .toc-header {
-    padding: 0.6rem 1rem;
-  }
-  
-  .toc-content {
-    padding: 0.5rem 0.8rem;
-  }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const tocHeader = document.querySelector('.toc-header');
-  const tocContent = document.querySelector('.toc-content');
-  
-  // Add click handler to toggle TOC
-  tocHeader.addEventListener('click', function() {
-    tocHeader.classList.toggle('collapsed');
-    tocContent.classList.toggle('collapsed');
-  });
-  
-  // Make TOC links work correctly with scroll behavior
-  document.querySelectorAll('.table-of-contents a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tocHeader = document.querySelector('.toc-header');
+      const tocContent = document.querySelector('.toc-content');
+      const tocToggle = document.querySelector('.toc-toggle');
       
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 100, // Add some offset for header
-          behavior: 'smooth'
+      tocHeader.addEventListener('click', function() {
+        const isVisible = tocContent.style.display !== 'none';
+        tocContent.style.display = isVisible ? 'none' : 'block';
+        tocToggle.textContent = isVisible ? '[Show]' : '[Hide]';
+        tocToggle.style.transform = isVisible ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('.toc-content a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            e.preventDefault();
+            window.scrollTo({
+              top: targetElement.offsetTop - 20,
+              behavior: 'smooth'
+            });
+          }
         });
-        
-        // Update URL without page reload
-        history.pushState(null, null, `#${targetId}`);
-      }
+      });
     });
-  });
-});
+  </script>
+</div>
 </script>
 
 
