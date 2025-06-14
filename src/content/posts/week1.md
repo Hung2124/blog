@@ -1,5 +1,5 @@
 ---
-title: "AIO2025 - Week 1: AIO 2025 Knowledge Synthesis - Comprehensive Learning Guide"
+title: "📚AIO2025 - Week 1: AIO 2025 Knowledge Synthesis - Comprehensive Learning Guide"
 published: 2025-06-11
 description: "Comprehensive summary of Week 1 AIO 2025 program covering essential skills, Python fundamentals, database basics, coding methodologies, and practical AI exercises."
 image: ""
@@ -8,7 +8,6 @@ category: "Learning Notes"
 draft: false
 ---
 
-# 📚 Week 1: AIO 2025 Knowledge Synthesis
 
 This document provides a consolidated summary of the key topics covered in the first week of the AIO 2025 program. The content is organized based on the provided PDF materials, covering essential skills, Python fundamentals, database basics, coding methodologies, and practical exercises.
 
