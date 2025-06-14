@@ -153,34 +153,37 @@ This document provides a consolidated summary of the key topics covered in the f
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    // Sử dụng window.onload thay vì DOMContentLoaded để đảm bảo tất cả tài nguyên đã được tải
+    window.onload = function() {
       const tocHeader = document.querySelector('.toc-header');
       const tocContent = document.querySelector('.toc-content');
       const tocToggle = document.querySelector('.toc-toggle');
       
-      tocHeader.addEventListener('click', function() {
-        const isVisible = tocContent.style.display !== 'none';
-        tocContent.style.display = isVisible ? 'none' : 'block';
-        tocToggle.textContent = isVisible ? '[Show]' : '[Hide]';
-        tocToggle.style.transform = isVisible ? 'rotate(180deg)' : 'rotate(0deg)';
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('.toc-content a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          
-          if (targetElement) {
-            e.preventDefault();
-            window.scrollTo({
-              top: targetElement.offsetTop - 20,
-              behavior: 'smooth'
-            });
-          }
+      if (tocHeader && tocContent && tocToggle) {
+        tocHeader.addEventListener('click', function() {
+          const isVisible = tocContent.style.display !== 'none';
+          tocContent.style.display = isVisible ? 'none' : 'block';
+          tocToggle.textContent = isVisible ? '[Show]' : '[Hide]';
+          tocToggle.style.transform = isVisible ? 'rotate(180deg)' : 'rotate(0deg)';
         });
-      });
-    });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('.toc-content a').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              e.preventDefault();
+              window.scrollTo({
+                top: targetElement.offsetTop - 20,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      }
+    };
   </script>
 </div>
 
