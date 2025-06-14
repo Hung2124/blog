@@ -13,12 +13,11 @@ Welcome to Week 2 of the AIO2025 journey! This week, we'll explore three fundame
 > 💡 **Learning Objectives:** Master Python data structures, design professional databases, and manage source code effectively with Git.
 
 <div class="toc-container" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin: 30px 0; border: 1px solid #e9ecef; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-  <div class="toc-header" style="cursor: pointer; user-select: none; font-weight: bold; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+  <div class="toc-header" style="font-weight: bold; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
     <div style="font-size: 1.2em; color: #3273dc;">📚 Table of Contents</div>
-    <div class="toc-toggle" style="color: #3273dc; transition: transform 0.3s;">[Hide]</div>
   </div>
   
-  <div class="toc-content" style="display: block; transition: height 0.3s ease-out; overflow: hidden;">
+  <div class="toc-content" style="display: block; overflow: hidden;">
     <ul style="list-style-type: none; padding-left: 0;">
       <li style="margin-bottom: 8px;">
         <a href="#python-lists" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
@@ -126,36 +125,23 @@ Welcome to Week 2 of the AIO2025 journey! This week, we'll explore three fundame
   </div>
 
   <script>
-    // Sử dụng window.onload thay vì DOMContentLoaded để đảm bảo tất cả tài nguyên đã được tải
+    // Chỉ giữ lại phần smooth scrolling cho anchor links
     window.onload = function() {
-      const tocHeader = document.querySelector('.toc-header');
-      const tocContent = document.querySelector('.toc-content');
-      const tocToggle = document.querySelector('.toc-toggle');
-      
-      if (tocHeader && tocContent && tocToggle) {
-        tocHeader.addEventListener('click', function() {
-          const isVisible = tocContent.style.display !== 'none';
-          tocContent.style.display = isVisible ? 'none' : 'block';
-          tocToggle.textContent = isVisible ? '[Show]' : '[Hide]';
-          tocToggle.style.transform = isVisible ? 'rotate(180deg)' : 'rotate(0deg)';
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('.toc-content a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            e.preventDefault();
+            window.scrollTo({
+              top: targetElement.offsetTop - 20,
+              behavior: 'smooth'
+            });
+          }
         });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('.toc-content a').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-              e.preventDefault();
-              window.scrollTo({
-                top: targetElement.offsetTop - 20,
-                behavior: 'smooth'
-              });
-            }
-          });
-        });
-      }
+      });
     };
   </script>
 </div>
