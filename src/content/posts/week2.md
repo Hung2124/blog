@@ -808,6 +808,30 @@ ERD is a visual model that represents the structure of a database. It illustrate
 | **Derived Attribute** | Dashed oval | Attribute that can be calculated from other attributes | age (from birth_date), total_amount |
 | **Relationship** | Diamond | Connection between two or more entities | Customer places Order, Product belongs to Category |
 
+#### 🔄 Weak Entities in ERD
+
+A **Weak Entity** is an entity that cannot be uniquely identified by its attributes alone and must rely on a relationship with another entity.
+
+**Characteristics:**
+- Represented by a double rectangle (double-lined box)
+- Depends on a strong (parent) entity
+- Primary key is a combination of foreign key (link to strong entity) and a discriminator (partial key)
+
+**Real-world Examples:**
+- `OrderDetail` as a weak entity dependent on `Order`
+- `Seat` in a `Flight` (seat numbers only make sense within the context of a specific flight)
+- `RoomNumber` in a `Building` (room numbers are only meaningful within a specific building)
+
+The relationship between weak entities and their strong entities:
+
+| Strong Entity | Relationship | Weak Entity | Discriminator |
+|---------------|--------------|-------------|---------------|
+| Order         | Contains     | OrderDetail | Product (part of composite key) |
+| Book          | Has          | Chapter     | Chapter Number |
+| Employee      | Manages      | Dependent   | Dependent Name |
+
+> 💡 **Note:** A weak entity always has an existence dependency relationship with its strong entity. This means that if the strong entity is deleted, all associated weak entities must also be deleted.
+
 ### 📊 Interactive ERD Visualization - Student Enrollment System
 
 <div id="d3-erd-diagram" style="background-color:#f8f9fa; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1rem; margin: 1.5rem 0;"></div>
@@ -1478,9 +1502,27 @@ Normalization is the process of organizing columns and tables in a relational da
 ✅ **Minimize Redundancy:** Avoid storing the same data in multiple places.
 
 ✅ **Prevent Anomalies:**
-- **Insertion Anomaly:** Difficulty inserting new data due to missing required data.
-- **Update Anomaly:** Inconsistency when only updating some redundant copies.
-- **Deletion Anomaly:** Unwanted data loss when deleting a record.
+
+#### 🚫 Database Anomalies - Why Normalization Matters
+
+Non-normalized data typically leads to three types of anomalies:
+
+**1. Insertion Anomaly:** 
+- **Problem:** Cannot add new data because related information is missing
+- **Example:** In a combined `StudentCourses` table, you cannot add a new student if they haven't enrolled in any courses yet (because course information is required)
+- **Solution:** Split into separate `Students` and `Enrollments` tables
+
+**2. Update Anomaly:**
+- **Problem:** A change requires updating multiple rows, easy to create inconsistency
+- **Example:** Changing an instructor's name requires updating it in every student record for that course
+- **Solution:** Extract instructor information to a separate table and use foreign keys
+
+**3. Deletion Anomaly:**
+- **Problem:** Deleting a record accidentally removes other essential information
+- **Example:** Removing the record of the last student in a course would also delete all information about that course
+- **Solution:** Separate data into linked tables
+
+> ⚠️ **Real-world Impact:** These anomalies not only cause data integrity issues but can lead to permanent data loss, maintenance difficulties, and challenges when scaling your database.
 
 **Normal Forms:**
 
@@ -2008,6 +2050,47 @@ Dictionaries are **ordered** (as of Python 3.7+) collections of **key-value pair
 - Caching and memoization
 - Configuration settings
 - Counting and frequency analysis
+
+### 🔄 3.3.1. Shallow vs Deep Copy in Dictionaries
+
+When working with dictionaries, especially those containing nested data structures, understanding the difference between shallow and deep copying is crucial:
+
+**Copy methods:**
+
+1. **Assignment (=):** Creates a new reference to the same dictionary object
+   ```python
+   original_dict = {'name': 'Alice', 'grades': [90, 85, 95]}
+   reference = original_dict  # Same reference to one object
+   reference['name'] = 'Bob'  # Change affects original_dict
+   print(original_dict['name'])  # Output: 'Bob'
+   ```
+
+2. **Shallow Copy (.copy()):** Creates a new dictionary object, but for nested objects (like lists), only references are copied
+   ```python
+   original_dict = {'name': 'Alice', 'grades': [90, 85, 95]}
+   shallow = original_dict.copy()  # or dict(original_dict)
+   
+   # Changing simple values doesn't affect the original
+   shallow['name'] = 'Bob'
+   print(original_dict['name'])  # Output: 'Alice'
+   
+   # But changing nested objects WILL affect original!
+   shallow['grades'].append(70)
+   print(original_dict['grades'])  # Output: [90, 85, 95, 70]
+   ```
+
+3. **Deep Copy (copy.deepcopy()):** Creates a completely independent copy of the dictionary and all nested objects
+   ```python
+   import copy
+   original_dict = {'name': 'Alice', 'grades': [90, 85, 95]}
+   deep = copy.deepcopy(original_dict)
+   
+   # Changes to nested objects will NOT affect original
+   deep['grades'].append(70)
+   print(original_dict['grades'])  # Output: [90, 85, 95]
+   ```
+
+> 💡 **When to use Deep Copy?** Use deep copy when you need a completely independent copy, especially when working with complex data and you don't want changes to the copy affecting the original data.
 
 ### 📊 Interactive Data Structure Comparison - List vs Dictionary
 
@@ -2547,7 +2630,25 @@ Version Control Systems (VCS) track and manage changes to files over time. Git i
 
  > 🔄 **Interactive:** Hover over each stage to understand the Git workflow process!
 
- #### 💻 Basic Git Workflow
+ ### 🛡️ 4.1.1. Core Principles of Git
+
+Git is built upon revolutionary foundational principles of version control:
+
+1. **Snapshots, Not Differences:** Unlike traditional VCS systems that store differences (diffs) between versions, Git stores complete "snapshots" of the entire project at each commit. This enables faster operations and efficient branching.
+
+2. **Data Integrity:** Everything in Git is checksummed using SHA-1 hash before it is stored. This means:
+   - Content cannot be changed without Git detecting it
+   - Each commit has a unique SHA-1 hash identifier, ensuring consistency
+   - Protection against transport errors and prevents history tampering
+
+3. **Offline-First Design:** Most operations in Git (commits, branches, merges) occur locally without needing internet connection. Benefits include:
+   - Significantly faster processing
+   - Flexibility to work without network dependency
+   - Autonomy in deciding when to synchronize with remote repositories
+
+> 📘 **Design Philosophy:** Git was designed by Linus Torvalds with a focus on speed, simple design, support for non-linear development, and the ability to handle large projects efficiently.
+
+#### 💻 Basic Git Workflow
 
  **Initialize or Clone a Repository:**
 
@@ -3187,6 +3288,35 @@ def count_words_in_file(filepath):
    - If `source[i-1] == target[j-1]`, the cost is `D[i-1, j-1]` (no operation)
    - Otherwise, the cost is `1 + min(D[i-1, j], D[i, j-1], D[i-1, j-1])`, which corresponds to the minimum cost of a deletion, insertion, or substitution
 4. The final value at `D[len(source)][len(target)]` is the Levenshtein distance
+
+#### 🧮 5.4.1. Recursive Formula for Levenshtein Distance
+
+The Levenshtein Distance algorithm is based on dynamic programming principles. The distance is calculated by building a matrix D, where D[i,j] represents the distance between the first i characters of source and the first j characters of target.
+
+**Recursive Formula:**
+
+1. **Base Cases:**
+   - D[i,0] = i (cost of transforming i characters to an empty string)
+   - D[0,j] = j (cost of transforming an empty string to j characters)
+
+2. **General Formula:** For each cell D[i,j]:
+   ```
+   D[i,j] = min(
+       D[i-1,j] + 1,          // Deletion (remove character from source)
+       D[i,j-1] + 1,          // Insertion (add character to source)
+       D[i-1,j-1] + cost      // Substitution/Match
+   )
+   ```
+   
+   Where `cost = 0` if source[i-1] = target[j-1], otherwise `cost = 1`.
+
+**Practical Applications:**
+- Spell checking and correction
+- Fuzzy search functionality
+- Plagiarism detection
+- DNA and protein sequence comparison in computational biology
+
+> 🔍 **Implementation Details:** This algorithm has a time complexity of O(m×n) and space complexity of O(m×n), where m and n are the lengths of the two strings. However, when only the final value is needed (not the edit path), the space complexity can be reduced to O(min(m,n)).
 
 ### 🧮 Interactive Levenshtein Distance Matrix
 
