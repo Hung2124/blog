@@ -49,6 +49,7 @@
 - **Fonts**: [Inter](https://rsms.me/inter/) - Optimized for screens
 - **Math**: [KaTeX](https://katex.org) - Fast math typesetting
 - **Search**: [Pagefind](https://pagefind.app) - Static search
+- **Developer Tools**: [Stagewise](https://stagewise.ai) - Browser toolbar for AI-powered editing
 
 ## 🚀 Quick Start
 

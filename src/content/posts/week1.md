@@ -874,7 +874,7 @@ A database is designed for efficient storage, retrieval, and management of data.
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 (function() {
-  // Clean, professional ERD implementation
+  // Clean, professional ERD implementation with gradient enhancements
   const erdConfig = {
     width: 800,
     height: 500,
@@ -883,6 +883,7 @@ A database is designed for efficient storage, retrieval, and management of data.
         id: "customers",
         name: "CUSTOMERS", 
         x: 50, y: 50,
+        gradientId: "erd-customers-gradient",
         fields: [
           { name: "customer_id", type: "int", key: "PK" },
           { name: "first_name", type: "string" },
@@ -896,6 +897,7 @@ A database is designed for efficient storage, retrieval, and management of data.
         id: "products",
         name: "PRODUCTS",
         x: 450, y: 50,
+        gradientId: "erd-products-gradient",
         fields: [
           { name: "product_id", type: "int", key: "PK" },
           { name: "product_name", type: "string" },
@@ -907,6 +909,7 @@ A database is designed for efficient storage, retrieval, and management of data.
         id: "orders", 
         name: "ORDERS",
         x: 50, y: 280,
+        gradientId: "erd-orders-gradient",
         fields: [
           { name: "order_id", type: "int", key: "PK" },
           { name: "customer_id", type: "int", key: "FK" },
@@ -918,6 +921,7 @@ A database is designed for efficient storage, retrieval, and management of data.
         id: "order_items",
         name: "ORDER_ITEMS", 
         x: 450, y: 280,
+        gradientId: "erd-order-items-gradient",
         fields: [
           { name: "order_item_id", type: "int", key: "PK" },
           { name: "order_id", type: "int", key: "FK" },
@@ -942,9 +946,64 @@ A database is designed for efficient storage, retrieval, and management of data.
       .attr("width", "100%")
       .attr("height", "100%")
       .attr("viewBox", `0 0 ${erdConfig.width} ${erdConfig.height}`)
-      .style("background", "white");
+      .style("background", "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)");
 
-    // Draw connections first (behind entities)
+    // Define gradients and filters
+    const defs = svg.append("defs");
+
+    // Entity gradients - each entity gets its own gradient family
+    const entityGradients = [
+      {
+        id: "erd-customers-gradient",
+        colors: ["#0984e3", "#74b9ff", "#a29bfe", "#6c5ce7"]
+      },
+      {
+        id: "erd-products-gradient",
+        colors: ["#00b894", "#00cec9", "#55efc4", "#81ecec"]
+      },
+      {
+        id: "erd-orders-gradient",
+        colors: ["#e17055", "#fd79a8", "#e84393", "#f093fb"]
+      },
+      {
+        id: "erd-order-items-gradient",
+        colors: ["#fdcb6e", "#f39c12", "#e67e22", "#d35400"]
+      }
+    ];
+
+    // Create gradients
+    entityGradients.forEach(grad => {
+      const gradient = defs.append("linearGradient")
+        .attr("id", grad.id)
+        .attr("x1", "0%").attr("y1", "0%")
+        .attr("x2", "100%").attr("y2", "100%");
+      
+      grad.colors.forEach((color, i) => {
+        gradient.append("stop")
+          .attr("offset", `${(i / (grad.colors.length - 1)) * 100}%`)
+          .attr("stop-color", color);
+      });
+    });
+
+    // Connection line gradient
+    const connectionGradient = defs.append("linearGradient")
+      .attr("id", "erd-connection-gradient")
+      .attr("x1", "0%").attr("y1", "0%")
+      .attr("x2", "100%").attr("y2", "0%");
+    connectionGradient.append("stop").attr("offset", "0%").attr("stop-color", "#636e72");
+    connectionGradient.append("stop").attr("offset", "50%").attr("stop-color", "#a29bfe");
+    connectionGradient.append("stop").attr("offset", "100%").attr("stop-color", "#636e72");
+
+    // Drop shadow filter
+    const filter = defs.append("filter")
+      .attr("id", "erd-drop-shadow")
+      .attr("height", "130%");
+    filter.append("feDropShadow")
+      .attr("dx", 3).attr("dy", 3)
+      .attr("stdDeviation", 4)
+      .attr("flood-opacity", 0.3);
+
+    // Draw enhanced connections first (behind entities)
     erdConfig.connections.forEach(conn => {
       const fromEntity = erdConfig.entities.find(e => e.id === conn.from);
       const toEntity = erdConfig.entities.find(e => e.id === conn.to);
@@ -954,23 +1013,39 @@ A database is designed for efficient storage, retrieval, and management of data.
       const toX = toEntity.x;
       const toY = toEntity.y + (toEntity.fields.length * 20) / 2 + 35;
 
-      // Connection line
+      // Enhanced connection line with gradient
       svg.append("line")
         .attr("x1", fromX)
         .attr("y1", fromY)
         .attr("x2", toX)
         .attr("y2", toY)
-        .attr("stroke", "#95a5a6")
-        .attr("stroke-width", 2)
-        .attr("opacity", 0.8);
+        .attr("stroke", "url(#erd-connection-gradient)")
+        .attr("stroke-width", 3)
+        .attr("opacity", 0.9)
+        .style("filter", "url(#erd-drop-shadow)");
 
-      // Connection label
-      svg.append("text")
+      // Connection label with enhanced background
+      const labelGroup = svg.append("g");
+      
+      // Label background
+      labelGroup.append("ellipse")
+        .attr("cx", (fromX + toX) / 2)
+        .attr("cy", (fromY + toY) / 2 - 2)
+        .attr("rx", conn.label.length * 4 + 8)
+        .attr("ry", 12)
+        .attr("fill", "rgba(255,255,255,0.95)")
+        .attr("stroke", "#a29bfe")
+        .attr("stroke-width", 1)
+        .style("filter", "url(#erd-drop-shadow)");
+
+      // Connection label text
+      labelGroup.append("text")
         .attr("x", (fromX + toX) / 2)
-        .attr("y", (fromY + toY) / 2 - 8)
+        .attr("y", (fromY + toY) / 2 + 2)
         .attr("text-anchor", "middle")
         .attr("font-size", "11px")
-        .attr("fill", "#7f8c8d")
+        .attr("font-weight", "600")
+        .attr("fill", "#6c5ce7")
         .attr("font-style", "italic")
         .text(conn.label);
     });
@@ -982,59 +1057,100 @@ A database is designed for efficient storage, retrieval, and management of data.
       .attr("class", "entity")
       .attr("transform", d => `translate(${d.x}, ${d.y})`);
 
-    // Entity containers
+    // Entity containers with gradient enhancements
     entityGroups.each(function(entity) {
       const group = d3.select(this);
       const entityHeight = 35 + entity.fields.length * 20;
 
-      // Main container
+      // Main container with enhanced styling
       group.append("rect")
         .attr("width", 200)
         .attr("height", entityHeight)
-        .attr("fill", "white")
-        .attr("stroke", "#34495e")
+        .attr("fill", "rgba(255,255,255,0.95)")
+        .attr("stroke", "#2d3436")
         .attr("stroke-width", 2)
-        .attr("rx", 6)
-        .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
+        .attr("rx", 8)
+        .style("filter", "url(#erd-drop-shadow)")
+        .style("cursor", "pointer")
+        .on("mouseover", function() {
+          d3.select(this)
+            .transition().duration(200)
+            .attr("stroke", "#fdcb6e")
+            .attr("stroke-width", 3)
+            .style("filter", "url(#erd-drop-shadow) drop-shadow(0 0 15px rgba(253, 203, 110, 0.4))");
+        })
+        .on("mouseout", function() {
+          d3.select(this)
+            .transition().duration(200)
+            .attr("stroke", "#2d3436")
+            .attr("stroke-width", 2)
+            .style("filter", "url(#erd-drop-shadow)");
+        });
 
-      // Header background
+      // Header background with gradient
       group.append("rect")
         .attr("width", 200)
         .attr("height", 35)
-        .attr("fill", "#3498db")
-        .attr("rx", 6)
-        .attr("ry", 6);
+        .attr("fill", `url(#${entity.gradientId})`)
+        .attr("rx", 8)
+        .attr("ry", 8)
+        .style("filter", "url(#erd-drop-shadow)");
 
-      // Header text
+      // Header text with enhanced styling
       group.append("text")
         .attr("x", 100)
         .attr("y", 23)
         .attr("text-anchor", "middle")
         .attr("fill", "white")
         .attr("font-weight", "bold")
-        .attr("font-size", "14px")
+        .attr("font-size", "15px")
+        .style("text-shadow", "2px 2px 4px rgba(0,0,0,0.6)")
         .text(entity.name);
 
-      // Fields
+      // Fields with enhanced styling
       entity.fields.forEach((field, i) => {
         const fieldY = 52 + i * 20;
         
-        // Field name and type
+        // Field background for better readability
+        if (field.key) {
+          group.append("rect")
+            .attr("x", 6)
+            .attr("y", fieldY - 12)
+            .attr("width", 188)
+            .attr("height", 18)
+            .attr("fill", field.key === "PK" ? "rgba(231, 76, 60, 0.1)" : "rgba(243, 156, 18, 0.1)")
+            .attr("rx", 3);
+        }
+        
+        // Field name and type with enhanced styling
         group.append("text")
           .attr("x", 12)
           .attr("y", fieldY)
           .attr("font-size", "12px")
+          .attr("font-weight", field.key ? "600" : "normal")
           .attr("fill", "#2c3e50")
           .text(`${field.name}: ${field.type}`);
 
-        // Key indicators
+        // Enhanced key indicators
         if (field.key) {
-          group.append("text")
-            .attr("x", 170)
-            .attr("y", fieldY)
-            .attr("font-size", "10px")
-            .attr("font-weight", "bold")
+          // Key badge background
+          group.append("rect")
+            .attr("x", 165)
+            .attr("y", fieldY - 10)
+            .attr("width", 28)
+            .attr("height", 14)
             .attr("fill", field.key === "PK" ? "#e74c3c" : "#f39c12")
+            .attr("rx", 7)
+            .style("filter", "url(#erd-drop-shadow)");
+          
+          // Key badge text
+          group.append("text")
+            .attr("x", 179)
+            .attr("y", fieldY - 2)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "9px")
+            .attr("font-weight", "bold")
+            .attr("fill", "white")
             .text(field.key);
         }
       });

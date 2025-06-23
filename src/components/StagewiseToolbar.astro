@@ -1,0 +1,20 @@
+---
+// StagewiseToolbar.astro - Conditionally renders the stagewise toolbar in dev mode only
+---
+
+<script>
+  // Only run in browser, not during SSR
+  if (typeof window !== 'undefined') {
+    // Check if we're in development mode
+    const isDev = import.meta.env.DEV;
+    
+    if (isDev) {
+      // Dynamically import and initialize the toolbar
+      import('@stagewise/toolbar').then(({ initToolbar }) => {
+        initToolbar({
+          plugins: [], // Add any specific plugins if needed
+        });
+      });
+    }
+  }
+</script> 
