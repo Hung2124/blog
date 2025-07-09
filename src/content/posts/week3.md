@@ -3,7 +3,7 @@ title: "📚 AIO2025 - Week 3: Object-Oriented Programming, SQL & Data Structure
 published: 2025-06-23
 description: "Comprehensive guide to OOP principles, PyTorch custom modules, SQL advanced queries, and fundamental data structures with interactive D3.js visualizations"
 tags: ["AIO2025", "Object-Oriented Programming", "SQL", "Data Structures", "PyTorch", "Python", "Interactive Learning"]
-category: "AI Development"
+category: "Learning Notes"
 draft: false
 ---
 
